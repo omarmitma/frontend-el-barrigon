@@ -1,0 +1,40 @@
+
+
+@import '0-base/base-dir';
+@import '1-pages/pages-dir';
+@import '2-modules/modules-dir';
+@import '3-helpers/helpers-dir';
+
+
+
+
+:root {
+  --transform-text: none;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+button{
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a,button{
+  transition: all .3s;
+  &:hover{
+    opacity: .8;
+  }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,47 @@
+
+.mainWrap{
+    .headerPrincipal{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: $height-header-mobile;
+        z-index: 15;
+    }
+    .contentPrincipal{
+        padding-top: $height-header-mobile;
+        min-height: 100vh;
+        height: 100%;
+    }
+    .footer{
+        width: 100%;
+    }
+    .contentViewLargeImage{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.mainWrapActiveViewImage{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    .contentViewLargeImage{
+        width: 100vw;
+        height: 100vh;
+        z-index: 1000;
+    }
+}
+@media (min-width:510px){
+    .mainWrap{
+        .headerPrincipal{
+            height: $height-header-desktop;
+        }
+        .contentPrincipal{
+            padding-top: $height-header-desktop;
+            min-height: 100vh;
+            height: 100%;
+        }
+    }
+}

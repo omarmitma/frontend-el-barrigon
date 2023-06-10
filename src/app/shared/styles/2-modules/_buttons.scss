@@ -1,0 +1,86 @@
+.btn-login{
+    width: 100%;
+    padding: 10px;
+    background-color: $background-login-button;
+    color: $white;
+    border-radius: 4px;
+}
+
+.btn-change-form{
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    p{
+        color: $white;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+.btn-change-form-tipe-2{
+    svg{
+        transform: rotate(180deg);
+    }
+}
+
+//
+.btn-function-users{
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    height: 45px;
+    .text{
+        display: flex;
+        text-align: left;
+        align-items: center;
+        height: 100%;
+        padding: 8px;
+        background-color: $background-catalogo-button-function;
+        position: relative;
+        z-index: 1;
+        p{
+            color: $white;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 105%;
+            height: 5px;
+            clip-path: polygon(0 0, 96% 0, 100% 100%, 8% 100%);
+            z-index: 0;
+            background-color: rgba($color: $background-catalogo-button-function, $alpha: 0.6)
+        }
+    }
+    .iconData{
+        background-color: $background-catalogo-button-icon-function;
+        height: 100%;
+        padding: 5px;
+        position: relative;
+        z-index: 1;
+        p{
+            font-size: 10px;
+            color: $white;
+        }
+        &::before{
+            content: "";
+            background-color: $background-catalogo-button-icon-function;
+            position: absolute;
+            top: 0;
+            left: -14px;
+            width: 15px;
+            height: 100%;
+            clip-path: polygon(100% 0%, 100% 100%, 0% 0%);
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 108%;
+            height: calc(100% + 5px);
+            clip-path: polygon(92% 0, 100% 8%, 100% 50%, 100% 100%, 10% 100%, 0 90%, 92% 90%);
+            z-index: 0;
+            background-color: rgba($color: $background-catalogo-button-icon-function, $alpha: 0.6)
+        }
+    }
+}

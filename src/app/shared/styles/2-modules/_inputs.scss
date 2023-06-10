@@ -1,0 +1,88 @@
+input{
+    outline: none;
+    border: none;
+}
+
+//Para Input login
+.inputDataLogin{
+    width: 100%;
+    span{
+        color: $white-login;
+        font-size: 12px;
+    }
+    .input{
+        margin-top: 4px;
+        border: 1px solid $white-login;
+        display: grid;
+        grid-template-columns: 45px 1fr;
+        border-radius: 4px;
+        .icon{
+            display: flex;
+            height: 100%;
+            padding: 5px;
+            justify-content: center;
+            align-items: center;
+            grid-column: 1/2;
+            grid-row: 1/2;
+            svg{
+                path{
+                    transition: .3s fill;
+                }
+            }
+        }
+        input{
+            padding: 17px 0;
+            background-color: $background-login-form;
+            color: $white-login;
+            caret-color: $background-login-button;
+            grid-column: 2/3;
+            grid-row: 1/2;
+            width: 100%;
+        }
+        input::placeholder{
+            transition: .3s color;
+            color: rgba($color: $white-login, $alpha: 0.8);
+        }
+        input:focus{
+            &::placeholder{
+                color: rgba($color: $white-login, $alpha: 0.4);
+            }
+        }
+        input:focus + .icon{
+            svg{
+                path{
+                    fill: $background-login-button;
+                }
+            }
+        }
+    }
+}
+
+.inputSearch{
+    overflow: hidden;
+    border-radius: 100px;
+    background-color: $white;
+    display: flex;
+    padding: 2px;
+    input{
+        padding: 7px;
+        width: 90vw;
+        max-width: 500px;
+    }
+    .icon{
+        background-color: $background-main;
+        border-radius: 100%;
+        padding: 2px;
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        align-items: center;
+    }
+
+}
+
+.input-doble{
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 4%;
+}

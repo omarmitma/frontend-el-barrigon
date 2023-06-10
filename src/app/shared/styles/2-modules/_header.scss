@@ -1,0 +1,60 @@
+
+.wrapHeader{
+    height: $height-header-mobile;
+    width: 100%;
+    background-color: $background-header;
+    z-index: 10;
+    display: flex;
+    
+    
+    .header{
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        .nameEmpresa{
+            h1{
+                font-size: 18px;
+                color: $white;
+            }
+        }
+        .right{
+            display: flex;
+            .wrapShoppingCart{
+                position: relative;
+                margin-right: 20px;
+                span{
+                    position: absolute;
+                    display: flex;
+                    right: -8px;
+                    top: -8px;
+                    background-color: $background-main;
+                    border-radius: 100%;
+                    font-size: 9px;
+                    color: $white;
+                    padding: 2px;
+                    width: 15px;
+                    height: 15px;
+                    text-align: center;
+                    justify-content: center;
+                }
+            }
+            .wrapUser{
+                .menuUser{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media(min-width: 510px){
+    .wrapHeader{
+        height: $height-header-desktop;
+        .header{
+            padding: 10px;
+        }
+    }
+    
+}

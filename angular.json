@@ -30,7 +30,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/app/shared/styles/my-theme-material.scss",
+              "src/app/shared/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -93,12 +94,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/app/shared/styles/my-theme-material.scss",
+              "src/app/shared/styles/styles.scss"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9c4b9835-1605-4f23-8852-7cba3ea56db6"
   }
 }

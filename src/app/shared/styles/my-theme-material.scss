@@ -1,0 +1,79 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+
+$my-primary-color: (
+    50 : #fdece5,
+    100 : #facebe,
+    200 : #f6ae93,
+    300 : #f28e68,
+    400 : #f07547,
+    500 : #ed5d27,
+    600 : #eb5523,
+    700 : #e84b1d,
+    800 : #e54117,
+    900 : #e0300e,
+    A100 : #ffffff,
+    A200 : #ffded9,
+    A400 : #ffb1a6,
+    A700 : #ff9b8c,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$system-restaurant-primary: mat.define-palette($my-primary-color);
+$system-restaurant-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$system-restaurant-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$system-restaurant-theme: mat.define-light-theme((
+  color: (
+    primary: $system-restaurant-primary,
+    accent: $system-restaurant-accent,
+    warn: $system-restaurant-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($system-restaurant-theme);
+
+
+
+.custom-form-field {
+  font-size: 12px; /* Tamaño del texto */
+  margin-right: 10px;
+}
+
+.custom-form-field mat-select {
+  font-size: 12px; /* Tamaño del texto dentro del select */
+}

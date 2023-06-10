@@ -1,0 +1,13 @@
+@mixin menus() {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background-color: $white;
+    padding: 24px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 80vw;
+    max-width: 240px;
+    z-index: 20;
+    display: none;
+}

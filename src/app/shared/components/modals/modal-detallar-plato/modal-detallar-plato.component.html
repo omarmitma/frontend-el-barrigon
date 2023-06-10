@@ -1,0 +1,55 @@
+ <div class="wrapModal" id="wrapModalDetallarPlato">
+    <div class="backgroundModal"></div>
+    
+    <div class="modal">
+        <div class="header">
+            <div class="title">
+                <p>{{ "DETALLE "+ platoNow.nomPlato }}</p>
+                <button (click)="openModal()">
+                    <img src="assets/icons/cerrar.png">
+                </button>
+            </div>
+        </div>
+        <div class="body">
+            <div class="data">
+                <div class="inputData">
+                    <p>DESCRIPCION</p>
+                    <div class="input">
+                        <p>{{ platoNow.nomPlato }}</p>
+                    </div>
+                </div>
+                <div class="inputData">
+                    <p>DESCRIPCION</p>
+                    <div class="input">
+                        <p>{{ platoNow.nomPlato }}</p>
+                    </div>
+                </div>
+                <div class="inputData">
+                    <p>DESCRIPCION</p>
+                    <div class="input">
+                        <p>{{ platoNow.nomPlato }}</p>
+                    </div>
+                </div>
+                <div class="inputData">
+                    <p>DESCRIPCION</p>
+                    <div class="input">
+                        <p>{{ platoNow.nomPlato }}</p>
+                    </div>
+                </div>
+                <div class="inputData">
+                    <p>DESCRIPCION</p>
+                    <div class="input">
+                        <p>{{ platoNow.nomPlato }}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="buttons">
+                <button class="add" (click)="addArte()" >ACEPTAR</button>
+                <button class="cancel" (click)="openModal()">CANCELAR</button>
+            </div>
+        </div>
+    </div>
+</div>

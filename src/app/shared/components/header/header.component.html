@@ -1,0 +1,35 @@
+<div class="wrapHeader">
+    <div class="header">
+        <div class="nameEmpresa">
+            <button [routerLink]="['/main']"><h1>EL BARRIGON</h1></button>
+        </div>
+        <div class="middle">
+            <div class="inputSearch">
+                <input type="text" name="" id="" placeholder="BUSCAR ...">
+                <button class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="16" height="16" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="m21.71 20.29-5.4-5.39A7.92 7.92 0 0 0 18 10a8 8 0 1 0-8 8 7.92 7.92 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM4 10a6 6 0 1 1 6 6 6 6 0 0 1-6-6z" data-name="Layer 31" fill="#ffffff" data-original="#000000" class=""></path></g></svg>
+                </button>
+            </div>
+        </div>
+        <div class="right">
+            <div class="wrapShoppingCart">
+                <a [routerLink]="['/main/shoppingCart']"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class="hovered-paths"><g><path d="M166 300.004h271.004c6.71 0 12.598-4.438 14.414-10.883l60.004-210.004c1.289-4.527.406-9.39-2.434-13.152A15.034 15.034 0 0 0 497.004 60H131.37l-10.723-48.25A15 15 0 0 0 106 0H15C6.71 0 0 6.71 0 15c0 8.293 6.71 15 15 15h78.96l54.169 243.75C132.19 280.68 121 296.543 121 315.004c0 24.812 20.187 45 45 45h271.004c8.293 0 15-6.707 15-15 0-8.29-6.707-15-15-15H166c-8.262 0-15-6.723-15-15s6.738-15 15-15zM151 405.004c0 24.816 20.188 45 45.004 45 24.812 0 45-20.184 45-45 0-24.813-20.188-45-45-45-24.816 0-45.004 20.187-45.004 45zM362.004 405.004c0 24.816 20.187 45 45 45 24.816 0 45-20.184 45-45 0-24.813-20.184-45-45-45-24.813 0-45 20.187-45 45zm0 0" fill="#ffffff" data-original="#000000" class="hovered-path"></path></g></svg></a>
+                <span>{{ variableGlobales.itemInShoppingCart.length }}</span>
+            </div>
+            <div class="wrapUser">
+                <button class="user" (click)="openMenuUser()">
+                    <img src="assets/icons/man.png">
+                </button>
+    
+                <div class="menuUser" [ngClass]="{'menuUserActive':activeMenuUser}">
+                    <p>¡Hola, {{ mainFunction.usuarioLogueado }}!</p>
+                    <ul>
+                        <li><button (click)="openMenuUser()" [routerLink]="['/main/account']">Tu cuenta</button></li>
+                        <li><button (click)="openMenuUser()" [routerLink]="['/main/frequentQuestions']">Preguntas frecuentes y ayuda</button></li>
+                        <li><button (click)="logOut()">Cerrar Sesión</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

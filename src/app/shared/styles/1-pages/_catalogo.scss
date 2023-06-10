@@ -1,0 +1,97 @@
+.wrapCatalogo{
+    .contentCatalogo{
+        .buttonFunction{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 20px;
+        }
+        .contentFilter{
+            margin-top: 20px;
+            padding: 15px 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+            border: 1px solid rgba($color: #000000, $alpha: 0.2);
+            border-radius: 2px;
+            .text-div{
+                position: absolute;
+                top: -7px;
+                left: 10px;
+                font-size: 10px;
+                padding: 2px;
+                background-color:$white;
+            }
+        }
+        .contentItemByCategory{
+            margin-top: 20px;
+            padding: 15px 10px 0;
+            border: 1px solid rgba($color: #000000, $alpha: 0.2);
+            border-radius: 2px;
+            .itemByCategory{
+                margin-bottom: 10px;
+                h4{
+
+                }
+                .items{
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit,250px);
+                    gap: 10px;
+                    margin-top: 10px;
+                    .item{
+                        padding: 10px 15px;
+                        border: 1px solid rgba($color: #000000, $alpha: 0.2);
+                        border-radius: 2px;
+                        background-color: $black;
+                        h5{
+                            text-align: left;
+                            font-weight: bold;
+                            font-size: 15px;
+                            color: $white;
+                        }
+                        .image{
+                            height: 120px;
+                            margin: 10px 0;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                        .description{
+                            display: flex;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+                            p{
+                                color: $white;
+                                font-size: 12px;
+                                font-weight: bold;
+                            }
+                            .precio{
+                                
+                            }
+                            .time{
+
+                            }
+                        }
+                       
+                        .button{
+                            margin-top: 10px;
+                            button{
+                                width: 100%;
+                                padding: 10px;
+                                background-color: $background-catalogo-button-agregar;
+                                color: $white;
+                            }
+                        }
+                        .button2{
+                            display: grid;
+                            grid-template-columns: 49% 49%;
+                            gap: 2%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
