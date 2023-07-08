@@ -1,0 +1,59 @@
+<div class="wrapShoppingCart wrapHoja">
+    <div class="contentShoppingCart">
+        <div class="wrapContentItems">
+            <div class="title">
+                <h3>Carrito</h3>
+                <p>{{ variablesGlobales.itemInShoppingCart.length }} items</p>
+            </div>
+            <div class="noItems" *ngIf="variablesGlobales.itemInShoppingCart.length <= 0">
+                <p>No hay productos en el carrito</p>
+            </div>
+            <div class="contentItems" *ngIf="variablesGlobales.itemInShoppingCart.length > 0">
+                <ul>
+                    <li *ngFor="let item of variablesGlobales.itemInShoppingCart">
+                        <div class="image"><img [src]="item.urlImagen" alt=""></div>
+                        <div class="text">
+                            <p class="text-span">{{ item.nomCategoria }}</p>
+                            <p class="text-main">{{ item.nomPlato }}</p>
+                        </div>
+                        <div class="quantity">
+                            <button (click)="changeQuantity(item,2)">-</button>
+                            <p>{{ item.cantidad }}</p>
+                            <button (click)="changeQuantity(item,1)">+</button>
+                        </div>
+                        <div class="price"><p>{{ item.precio | currency: 'S/. ' }}</p></div>
+                        <div class="delete">
+                            <button (click)="deleteItem(item)"><img src="assets/icons/cerrar.png" alt=""></button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrapContentDetailShoppingCart">
+            <div class="detailShoppingCart">
+                <div class="title">
+                    <h4>RESUMEN DE ORDEN</h4>
+                </div>
+                <div class="precios">
+                    <div class="precio">
+                        <p>Subtotal</p>
+                        <p>S/. 2.00</p>
+                    </div>
+                    <div class="precio">
+                        <p>Descuento</p>
+                        <p>S/. 1.00</p>
+                    </div>
+                </div>
+                <div class="total">
+                    <div class="precio">
+                        <p>Total</p>
+                        <p>S/. 1.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <button>Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>

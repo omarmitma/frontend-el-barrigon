@@ -1,0 +1,24 @@
+<div class="wrapInventarioAdd">
+    <div class="title">
+        <h2>AGREGAR INVENTARIO</h2>
+    </div>
+    <div class="contentInventarioAdd">
+        <div class="form"></div>
+        <div class="contentImage">
+            <div class="image" id="dropZoneAddImage">
+                <div class="content">
+                    <span class="filename">{{ mainFunction.textDrop }} aqui</span>
+                    <img *ngIf="plato.imagen.base64 === undefined && plato.urlImagen !== ''" [src]="plato.urlImagen">
+                    <input type="file" class="input" id="inputImageDropZone" (change)="chosenImage($event)" accept="image/png, image/jpeg">
+                </div>
+            </div>
+            <div class="button">
+                <button class="eliminar" (click)="deleteImage()">BORRAR IMAGEN</button>
+                <label for="imagenButtonAddImage">
+                    AGREGAR IMAGEN
+                    <input type="file" id="imagenButtonAddImage" accept="image/png, image/jpeg" (change)="chosenImage($event)">
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

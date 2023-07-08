@@ -1,0 +1,29 @@
+.table{
+    overflow: auto;
+}
+
+table{
+    thead{
+        tr{
+            border-bottom: 1px solid rgba($color: $black, $alpha: 0.4);
+            th{
+                text-align: left;
+                padding: 5px 10px;
+            }
+        }
+    }
+    tbody{
+        tr{
+            border-bottom: 1px solid rgba($color: $black, $alpha: 0.4);
+            td{
+                text-align: left;
+                padding: 5px 10px;
+                img{
+                    width: 60px;
+                    height: 60px;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+}

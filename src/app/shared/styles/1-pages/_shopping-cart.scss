@@ -1,0 +1,124 @@
+.wrapShoppingCart{
+    .contentShoppingCart{
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 2%;
+        .wrapContentItems{
+            .title{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                h3{
+                    font-size: 18px;
+                }
+                p{
+                    font-weight: bold;
+                    color: rgba($color: $black, $alpha: 0.4);
+                }
+            }
+            .noItems{
+                text-align: center;
+                font-weight: bold;
+                color: rgba($color: $black, $alpha: 0.4);
+            }
+            .contentItems{
+                ul{
+                    li{
+                        list-style: none;
+                        display: grid;
+                        grid-template-columns: 100px 1fr 100px 100px 50px;
+                        gap: 5px;
+                        width: 100%;
+                        align-items: center;
+                        justify-content: center;
+                        .image{
+                            img{
+                                width: 80px;
+                                height: 80px;
+                                object-fit: contain;
+                            }
+                        }
+                        .text{
+                            align-items: center;
+                            .text-span{
+                                font-size: 12px;
+                                font-weight: bold;
+                                color: rgba($color: $black, $alpha: 0.4);
+                            }
+                            .text-main{
+                                font-size: 16px;
+                                font-weight: bold;
+                                color: rgba($color: $black, $alpha: 0.8);
+                            }
+                        }
+                        .quantity{
+                            display: flex;
+                            height: 30px;
+                            align-items: center;
+                            background-color: $background-shopping-cart-resumen-second;
+                            width: 90px;
+                            button{
+                                height: 100%;
+                                width: 30px;
+                                background-color: $background-shopping-cart-button-quantity;
+                                color: $white;
+                            }
+                            p{
+                                width: 30px;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-weight: bold;
+                            }
+                        }
+                        .price{
+                            p{
+                                font-weight: bold;
+                                font-size: 20px;
+                                color: rgba($color: $black, $alpha: 0.5);
+                            }
+                        }
+                        .delete{
+                            button{
+                                img{
+                                    width: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .wrapContentDetailShoppingCart{
+            .detailShoppingCart{
+                background-color: $background-shopping-cart-resumen;
+                .title{
+                    padding: 15px;
+                }
+                .precios{
+                    border-top: 1px solid $background-shopping-cart-resumen-second;
+                    border-bottom: 1px solid $background-shopping-cart-resumen-second;
+                    padding: 15px;
+                }
+                .precio{
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 10px 0;
+                }
+                .total{
+                    padding: 15px;
+                }
+            }
+            .button{
+                margin-top: 10px;
+                button{
+                    width: 100%;
+                    background-color: $background-button-select-check;
+                    color: $white;
+                    padding: 10px;
+                }
+            }
+        }
+    }   
+}

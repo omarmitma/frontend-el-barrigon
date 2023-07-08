@@ -3,6 +3,28 @@ input{
     border: none;
 }
 
+
+  input:disabled{
+    border-radius: 3px;
+  }
+  
+  /* Quitar las flechas del input number */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    
+  }
+  input[type="number"] {
+    appearance: textfield;
+  }
+  
+  input[type="checkbox"]{
+    cursor: pointer;
+  }
+
+
+
 //Para Input login
 .inputDataLogin{
     width: 100%;
@@ -67,7 +89,6 @@ input{
     input{
         padding: 7px;
         width: 90vw;
-        max-width: 500px;
     }
     .icon{
         background-color: $background-main;
@@ -81,8 +102,197 @@ input{
 
 }
 
+@media(min-width: 810px){
+    .inputSearch{
+        input{
+            max-width: 500px;
+        }
+    }
+}
+
 .input-doble{
     display: grid;
     grid-template-columns: 48% 48%;
+    gap: 4%;
+}
+
+.inputData{
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 5px;
+    p {
+        padding: 5px;
+        font-size: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        word-wrap: break-word;
+    }
+    .input {
+        input,
+        p {
+            width: 100%;
+            height: 28px;
+            padding: 0 5px;
+            background-color: $background-input-data-ingrediente;
+            display: flex;
+            align-items: center;
+
+        }
+        textarea {
+            width: 100%;
+            padding: 5px;
+            border-radius: 3px;
+            background-color: #eceff1;
+            border: 1px solid #ced4da;
+            resize: none;
+            outline: none;
+        }
+
+    }
+}
+.inputIngredientes{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
+    gap: 10px;
+    margin: 10px 0;
+}
+.inputDataIngrediente{
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    background-color: $background-input-data-ingrediente;
+    justify-content: center;
+    align-items: center;
+    .data{
+        display: grid;
+        grid-template-columns: 1fr 40px 40px;
+        position: relative;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+
+    }
+    p {
+        padding: 5px;
+        font-size: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        word-wrap: break-word;
+        color: $black;
+    }
+    input{
+        background-color: transparent;
+        border-bottom: 1px solid $black;
+        padding: 2px;
+    }
+    .btnSelect{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        background-color: $background-button-select-cancel;
+        position: relative;
+        .bg-button{
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: $background-button-select-check;
+            transition: .3s transform;
+        }
+        button{
+            position: relative;
+            height: 100%;
+            padding: 8px;
+            z-index: 1;
+        }
+    }
+}
+
+.tacha{
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    .linea{
+        position: absolute;
+        top: 0;
+        width: 120%;
+        height: 2px;
+        background-color: rgba($color: $black, $alpha: 0.3);
+    }
+    .linea-1{
+        left: 0;
+        transform-origin: top left;
+        transform: rotate(8deg);
+    }
+    .linea-2{
+        right: 0;
+        transform-origin: top right;
+        transform: rotate(-8deg);
+    }
+}
+
+.select-1{
+    .data{
+        .tacha{
+            display: none;
+        }
+    }
+    .btnSelect{
+        .bg-button{
+            transform: translateX(0);
+        }
+    }
+}
+.select-2{
+    .data{
+        .tacha{
+            display: block;
+        }
+    }
+    .btnSelect{
+        .bg-button{
+            transform: translateX(100%);
+        }
+    }
+}
+
+
+
+.contentObservation{
+    margin-top: 20px;
+    background-color: $white;
+    .observation {
+      padding: 10px;
+      border: 1px solid rgba($color: $black, $alpha: 0.4);
+      border-radius: 5px;
+      p {
+        font-size: 12px;
+        font-weight: bold;
+      }
+      textarea {
+        resize: none;
+        width: 100%;
+        border: none;
+        outline: none;
+      }
+    }
+}
+.input-data-plato{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
+    gap: 10px;
+}
+.input-doble{
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 4%;
+}
+
+.input-triple{
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
     gap: 4%;
 }

@@ -1,9 +1,11 @@
 
 $white:#ffffff;
 $black: #000000;
+$red:#dc3545;
 
 $background-main:#fd423d;
 $background-main-2: #222222;
+$background-button: #0874AA;
 //Login
 $white-login:#cdcdcd;
 $background-login-form:#020202;
@@ -18,15 +20,46 @@ $background-catalogo-button-function: #4a4d52;
 $background-catalogo-button-icon-function: #fd423d;
 
 $background-catalogo-button-agregar: #fd423d;
+$background-button-detallar: #fd423d;
+$background-button-quitar: #ffffff;
 
+//Detallar catalogo
+$background-button-select-check:#fd423d;
+$background-button-select-cancel:#000000;
+$background-input-data-ingrediente:#c8c8c8;
 //Paginacion
 $background-pagination: #e7e7e7;
 $background-active-pagination:#fd423d;
 $color-pagination: rgba(0,0,0,.5);
 $color-pagination-hover: #fd423d;
 $color-active-pagination:#fff;
-
+//Carrito
+$background-shopping-cart-resumen:#efefef;
+$background-shopping-cart-resumen-second:#d1d1d1;
+$background-shopping-cart-button-quantity:#474747;
 //Modal
 $background-modal: rgba(0,0,0,.7);
 $background-button-aceptar-modal: #fd423d;
 $background-button-cancel-modal: #000000;
+
+
+
+//Main administrador
+$background-main-admin: #1b1c1e;
+$background-button-admin-navigarion-active: #454857;
+$color-text-navigation:#bdbdbd;
+$background-button-delete:#ff0000;
+$background-button-edit:#0000ff;
+
+//MESAS
+$background-mesas-ocupadas: #000000;
+$background-mesas-llamando: #fd423d;
+$background-mesas-reservada: #88584e;
+
+$background-no-ingrediente: #fd423d;
+
+//ESTADISTICAS
+$background-statistics-first: #fafafa;
+
+$title-statistics-second:#5689cd;
+$title-statistics-three:#4d8911;

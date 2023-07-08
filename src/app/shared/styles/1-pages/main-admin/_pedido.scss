@@ -1,0 +1,94 @@
+.wrapPedido{
+    padding: 10px;
+    .contentPedido{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4,24%);
+        gap: calc(4% / 3);
+        margin-top: 40px;
+        .pedido{
+            width: 100%;
+            height: max-content;
+            background-color: $black;
+            color: $white;
+            padding: 8px;
+            border-radius: 3px;
+            .title{
+                font-size: 15px;
+                font-weight: bold;
+            }
+            .platos{
+                margin: 10px 0;
+                .plato{
+                    margin: 8px 0;
+                    .general{
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    .especificaciones{
+                        margin: 5px 0;
+                        .ingrediente{
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 10px;
+                            li{
+                                border-radius: 50px;
+                                background-color: $white;
+                                display: flex;
+                                gap: 10px;
+                                padding: 4px;
+                                position: relative;
+                                p{
+                                    color: $black;
+                                    width: max-content;
+                                    font-size: 10px
+                                }
+                            }
+                            .no-ingrediente{
+                                background-color: $background-no-ingrediente;
+                                .tacha{
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                    .observacion{
+                        textarea{
+                            width: 100%;
+                            border-radius: 2px;
+                            padding: 5px;
+                        }
+                    }
+                }
+            }
+            .time{
+                border-top: 2px solid $white;
+                display: flex;
+                justify-content: space-between;
+                padding-top: 10px;
+                p{
+                    font-size: 14px;
+                }
+            }
+            .button{
+                margin-top: 10px;
+                button{
+                    width: 100%;
+                    padding: 8px;
+                    color: $white;
+                    background-color: $background-button-aceptar-modal;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+ul,ol{
+    list-style: none;
+}
+
+textarea{
+    resize: none;
+    outline: none;
+}

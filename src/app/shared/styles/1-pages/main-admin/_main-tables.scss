@@ -1,0 +1,81 @@
+
+.wrapTables{
+    padding: 10px;
+    .header{
+        display: flex;
+        justify-content: space-between;
+    }
+    .contentTables{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-gap: 20px;
+        margin-top: 50px;
+        .table{
+            border-radius: 5px;
+            width: 220px;
+            height: 120px;
+            padding: 5px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            p{
+                font-size: 13px;
+                font-weight: bold;
+            }
+            .funciones{
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                grid-template-rows: repeat(2,1fr);
+                height: 60px;
+                .funcion{
+                    justify-content: center;
+                    button{
+                        width: max-content;
+                        height: max-content;
+                        p{
+                            font-size: 8px;
+                            font-weight: 400;
+                        }
+                    }
+                   
+                }
+            }
+            .time{
+                text-align: right;
+                p{
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+
+.table-1{
+    border: 2px solid $black;
+}
+
+.table-2{
+    border: 2px solid $background-mesas-ocupadas;
+    background-color: $background-mesas-ocupadas;
+    p{
+        color: $white;
+    }
+}
+
+.table-3{
+    border: 2px solid $background-mesas-llamando;
+    background-color: $background-mesas-llamando;
+    p{
+        color: $white;
+    }
+}
+
+.table-4{
+    border: 2px solid $background-mesas-reservada;
+    background-color: $background-mesas-reservada;
+    p{
+        color: $white;
+    }
+}
+

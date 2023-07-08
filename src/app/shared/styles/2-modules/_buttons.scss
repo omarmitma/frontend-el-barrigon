@@ -84,3 +84,56 @@
         }
     }
 }
+
+.btn-default{
+    background-color: $background-button-edit;
+    padding: 5px;
+    border-radius: 3px;
+    p{
+        color:$white;
+        font-weight: bold;
+        font-size: 12px;
+    }
+}
+.btn-with-icon{
+    display: grid;
+    grid-template-columns: 15px 1fr;
+    gap: 5px;
+}
+.btn-detallar{
+    background-color: $background-button-detallar !important;
+}
+
+.btn-quitar{
+    background-color: $background-button-quitar !important;
+    color: $black !important;
+}
+
+.btn-edit{
+    padding: 5px;
+    border-radius: 3px;
+    background-color: $background-button-edit;
+}
+.btn-delete{
+    padding: 5px;
+    border-radius: 3px;
+    background-color: $background-button-delete;
+}
+
+.btn-question{
+    border: 2px solid $black;
+    border-radius: 100%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+// .btn-select-check{
+//     background-color: $background-button-select-check ;
+// }
+
+// .btn-select-cancel{
+//     background-color: $background-button-select-cancel ;
+// }
+

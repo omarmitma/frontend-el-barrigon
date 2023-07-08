@@ -1,4 +1,4 @@
-import { Platos } from "./platos";
+import { Platos } from "../platos";
 
 export class CartaPlatosWeb{
     idCategoria:number = 0;

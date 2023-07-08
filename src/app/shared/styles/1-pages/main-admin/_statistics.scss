@@ -1,0 +1,120 @@
+.wrapStatistics{
+    padding: 10px;
+    .contentTitle{
+        display: flex;
+        justify-content: space-between;
+    }
+    h3{
+        margin-top: 10px;
+        font-size: 20px;
+        color: rgba($color: #000000, $alpha: 0.6);
+        font-weight: bold;
+    }
+}
+
+.contentFirstStatistics{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+    gap: 10px;
+    margin-top: 20px;
+    .firstStats{
+        background-color: $background-statistics-first;
+        border-radius: 2px;
+        padding: 15px 10px;
+        .quantityIcon{
+            display: flex;
+            justify-content: space-between;
+            p{
+                font-weight: bold;
+                font-size: 17px;
+            }
+        }
+        .text{
+            p{
+                font-size: 14px;
+                font-weight: bold;
+                color: rgba($color: #000000, $alpha: 0.3);
+            }
+        }
+    }
+}
+
+.contentSecondStatistics{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+    gap: 10px;
+    margin-top: 10px;
+    .secondStats{
+        background-color: $background-statistics-first;
+        border-radius: 2px;
+        padding: 15px 10px;
+        text-align: center;
+        .text{
+            text-align: center;
+            padding-bottom: 5px;
+            p{
+                font-size: 16px;
+                color: $title-statistics-second;
+                font-weight: bold;
+            }
+        }
+        .quantity{
+            padding-top: 5px;
+            border-top: 2px solid rgba($color: #000000, $alpha: 0.1);
+            p{
+                font-size: 15px;
+                color: rgba($color: #000000, $alpha: 0.4);
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.contentGraphic{
+    min-height: 300px;
+    border: 1px solid $black;
+    margin-top: 10px;
+}
+
+.contentThreeStatistics{
+    display: grid;
+    grid-template-columns: repeat(2,49%);
+    gap: 2%;
+    margin-top: 10px;
+    .threeStats{
+        background-color: $background-statistics-first;
+        border-radius: 2px;
+        padding: 15px 10px;
+        text-align: left;
+        h3{
+            color: $title-statistics-three;
+        }
+        table{
+            margin-top: 10px;
+            thead{
+                tr{
+                    th{
+                        color: $title-statistics-second;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    tbody{
+        tr{
+            td{
+                font-size: 14px;
+            }
+        }
+    }
+}
+th, td{
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
+}
