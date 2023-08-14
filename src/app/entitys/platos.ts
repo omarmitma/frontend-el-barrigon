@@ -14,20 +14,6 @@ export class Platos{
         this.fecModifica = f.getFullYear() + "-" + mes + "-" + day ;
     }
 
-    // idPlatos:number = 0;
-    // nomPlato:string = "";
-    // precio:number = 0;
-    // precioAdicional:number = 0;
-    // urlImagen:string = "";
-    // waitTime:string = "";
-    // idCategoria:number = 0;
-    // nomCategoria:string = "";
-    // observacion:string = "";
-    // flagInShoppingCar:boolean = false;
-    // cantidad:number = 0;
-    // imagen:Images = new Images();
-    // detallePlato:DetallePlato[] = [];
-
     idPlato:number = 0;
     idLinea:number = 0;
     idSubLinea:number = 0;
@@ -35,12 +21,14 @@ export class Platos{
     nombre:string = "";
     abreviatura:string = "";
     precio:number = 0;
+    precioCarrito:number = 0;
     precioAdicional:number = 0;
     precioOferta:number = 0;
     urlImagen:string = "";
     tiempoEspera:string = "";
     observacion:string = "";
     imagen:Images = new Images();
+    idDetalleCarrito:number = 0;
 
     fecRegistro:string = "";
     horRegistro:string = "";
@@ -53,7 +41,6 @@ export class Platos{
     estado:number = 0;
     accion:number = 0;
 
-    nomPlato:string = "";
     nomCategoria:string  = "";
     flagInShoppingCar:boolean = false;
     cantidad:number = 0;

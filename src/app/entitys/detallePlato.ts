@@ -7,19 +7,6 @@ export class DetallePlato{
         this.fecRegistro = f.getFullYear() + "-" + mes + "-" + day ;
         this.fecModifica = f.getFullYear() + "-" + mes + "-" + day ;
     }
-    
-    // idPlatosDetalle:number = 0;
-    // idPlatos:number = 0;
-    // idIngrediente:number = 0;
-    // nomIngrediente:string = "";
-    // cantidad:number = 0;
-    // cantidadMaxima:number = 0;
-    // idMedida:number = 0;
-    // nomMedida:string = "";
-    // abrMedida:string = "";
-    // required:boolean = false;
-    // select:boolean = true;
-    // precioUnit:number = 0;
 
     idDetallePlato:number = 0;
     idPlato:number = 0;
@@ -28,6 +15,7 @@ export class DetallePlato{
     cantidad:number = 0;
     cantidadMaxima:number = 0;
     flagRequerido:number = 0;
+    flagRequeridoBool:boolean = false;
 
     fecRegistro:string = "";
     horRegistro:string = "";
@@ -44,6 +32,8 @@ export class DetallePlato{
     nomMedida:string = "";
     abrMedida:string = "";
     precioUnit:number = 0;
+    urlImagen:string = "";
+    nomCategoria:string = "";
 
     flagSelect:boolean = true;
 }

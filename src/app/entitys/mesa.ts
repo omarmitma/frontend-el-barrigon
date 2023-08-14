@@ -33,4 +33,6 @@ export class Mesa{
     mesaFunciones:MesaFunciones[] = [];
     pedidos:Pedido[] = [];
     reservas:Reserva[] = [];
+
+    tiempoRecurrido:string = "";
 }

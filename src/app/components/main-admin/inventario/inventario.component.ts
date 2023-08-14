@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Images } from 'src/app/entitys/otros/images';
+import { Platos } from 'src/app/entitys/platos';
+import { PlatoService } from 'src/app/services/plato.service';
 import { TestSignalrService } from 'src/app/services/test-signalr.service';
 import { Alert } from 'src/app/shared/functions/alerts';
 import { MainFunction } from 'src/app/shared/functions/mainFunction';
 import { VariablesGlobales } from 'src/app/shared/functions/variablesGlobales';
-import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
-import { DetalleMaestro } from 'src/app/entitys/detalleMaestro';
-import { Platos } from 'src/app/entitys/platos';
 
 @Component({
   selector: 'app-inventario',
@@ -15,53 +15,17 @@ import { Platos } from 'src/app/entitys/platos';
 })
 export class InventarioComponent implements OnInit{
 
-  arrayOrden:DetalleMaestro[] = [];
+  constructor(public variableGlobales:VariablesGlobales, private mainFunction:MainFunction, private alert:Alert, private platosService:PlatoService,
+    private router:Router) { }
 
-  arrayCategoria:DetalleMaestro[] = [];
-  arrayPrecio:DetalleMaestro[] = [];
-
-  platosArray:Platos[] = [];
-
-  constructor(public variableGlobales:VariablesGlobales, private mainFunction:MainFunction, private alert:Alert, private testSignalRService:TestSignalrService) { }
-
-  private hubConnection: HubConnection;
   messages: string[] = [];
   user:string = "";
   message:string = "";
-  ngOnInit(): void {
-
-    this.hubConnection = new HubConnectionBuilder()
-      .withUrl('https://localhost:44328/hub', {
-         // 'Content-Type': 'application/json',
-        // 'Access-Control-Allow-Origin': '*',
-      })
-      .build();
-
-    this.hubConnection.start()
-      .then(() => {
-        console.log('Conexión establecida con el hub de SignalR');
-      })
-      .catch(error => {
-        console.error('Error al establecer la conexión con el hub de SignalR:', error);
-      });
-
-    this.hubConnection.on('ReceiveMessage', (user: string, message: string) => {
-      const fullMessage = `${user}: ${message}`;
-      this.messages.push(fullMessage);
-    });
+  async ngOnInit(): Promise<void> {
+    await this.refreshInventario();
   }
 
-
-  sendMessage(user: string, message: string): void {
-    this.hubConnection.send('SendMessage', user, message)
-    .then(() => {
-      console.log('Mensaje enviado');
-    })
-    .catch(error => {
-      console.error('Error al enviar el mensaje:', error);
-    });
-  }
-
+  
   //Paginacion
   pageAll:number[] = [1,2,3];
   pageActive:number = 1
@@ -85,10 +49,28 @@ export class InventarioComponent implements OnInit{
     this.getRegisterByPage();
   }
 
-  testSignal(){
-    
+  editItem(data:Platos){
+    this.alert.alertConfirm("¿Desea editar este registro?","").then(async(resolve) =>{
+      if(resolve.isConfirmed){
+        this.router.navigate([`/admin/inventario/edit/${data.idPlato}`]);
+      }
+    });
   }
-  sendSignal(){
-    this.testSignalRService.sendMessage("asdasdasdasd");
+  deleteItem(data:Platos){
+    this.alert.alertConfirm("¿Seguro de eliminar este registro?","").then(async(resolve) => {
+      if(resolve.isConfirmed){
+        await this.platosService.eliminar(data.idPlato).then();
+        await this.refreshInventario();
+        this.alert.alertSucces("Eliminado exitosamente");
+      }
+    });
+  }
+
+  async refreshInventario(){
+    await this.platosService.buscarAll_Inner().then(resolve => {
+      if(resolve.status === 200){
+        this.variableGlobales.platosArray = resolve.body.message;
+      }
+    });
   }
 }

@@ -1,3 +1,4 @@
+import { ClienteFunciones } from "./clienteFunciones";
 import { Reserva } from "./reserva";
 import { Venta } from "./venta.";
 
@@ -26,4 +27,5 @@ export class Cliente{
 
     reservas:Reserva[] = [];
     venta:Venta[] = [];
+    clienteFunciones:ClienteFunciones[] = [];
 }

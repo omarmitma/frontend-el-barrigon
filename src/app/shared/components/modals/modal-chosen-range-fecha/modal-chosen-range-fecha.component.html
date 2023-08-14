@@ -1,0 +1,29 @@
+<div class="wrapModal" id="wrapModalChosenDate">
+    <div class="backgroundModal"></div>
+    <div class="modal">
+        <div class="header">
+            <div class="title">
+                <p>ESCOGER FECHAS</p>
+                <button (click)="openModal()">
+                    <img src="assets/icons/cerrar.png">
+                </button>
+            </div>
+        </div>
+        <div class="body body-2-50">
+            <div class="inputData-type-2">
+                <span>Fecha Inicio</span>
+                <input type="date" [(ngModel)]="fecIni">
+            </div>
+            <div class="inputData-type-2">
+                <span>Fecha Fin:</span>
+                <input type="date" [(ngModel)]="fecFin">
+            </div>
+        </div>
+        <div class="footer">
+            <div class="buttons">
+                <button class="add" (click)="addRegister()" >ACEPTAR</button>
+                <button class="cancel" (click)="openModal()">CANCELAR</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -28,5 +28,9 @@ export class DetallePedido{
     estado:number = 0;
     accion:number = 0;
 
+    nomPlato:string = "";
+    nomCategoria:string = "";
+    urlImagen:string = "";
+
     detallePedidoPersonalizados:DetallePedidoPersonalizado[] = [];
 }

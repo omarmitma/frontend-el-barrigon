@@ -16,6 +16,7 @@ export class DetalleCarrito{
     precio:number = 0;
     cantidad:number = 0;
     comentario:string = "";
+    flagPedido:number = 0;
 
     fecRegistro:string = "";
     horRegistro:string = "";
@@ -27,6 +28,10 @@ export class DetalleCarrito{
     nomUsuModifica:string = "";
     estado:number = 0;
     accion:number = 0;
+
+    nomPlato:string = "";
+    nomCategoria:string = "";
+    urlImagen:string = "";
 
     detalleCarritoPersonalizados:DetalleCarritoPersonalizado[] = [];
 }

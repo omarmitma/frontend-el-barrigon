@@ -3,27 +3,27 @@
         <div class="wrapContentItems">
             <div class="title">
                 <h3>Carrito</h3>
-                <p>{{ variablesGlobales.itemInShoppingCart.length }} items</p>
+                <p>{{ variablesGlobales.carrito.detalleCarritos.length }} items</p>
             </div>
-            <div class="noItems" *ngIf="variablesGlobales.itemInShoppingCart.length <= 0">
+            <div class="noItems" *ngIf="variablesGlobales.carrito.detalleCarritos.length <= 0">
                 <p>No hay productos en el carrito</p>
             </div>
-            <div class="contentItems" *ngIf="variablesGlobales.itemInShoppingCart.length > 0">
+            <div class="contentItems" *ngIf="variablesGlobales.carrito.detalleCarritos.length > 0">
                 <ul>
-                    <li *ngFor="let item of variablesGlobales.itemInShoppingCart">
+                    <li *ngFor="let item of variablesGlobales.carrito.detalleCarritos" [ngClass]="{'item-pedido':item.flagPedido === 1}">
                         <div class="image"><img [src]="item.urlImagen" alt=""></div>
                         <div class="text">
                             <p class="text-span">{{ item.nomCategoria }}</p>
                             <p class="text-main">{{ item.nomPlato }}</p>
                         </div>
                         <div class="quantity">
-                            <button (click)="changeQuantity(item,2)">-</button>
+                            <button [disabled]="item.flagPedido === 1" (click)="changeQuantity(item,2)">-</button>
                             <p>{{ item.cantidad }}</p>
-                            <button (click)="changeQuantity(item,1)">+</button>
+                            <button [disabled]="item.flagPedido === 1" (click)="changeQuantity(item,1)">+</button>
                         </div>
                         <div class="price"><p>{{ item.precio | currency: 'S/. ' }}</p></div>
                         <div class="delete">
-                            <button (click)="deleteItem(item)"><img src="assets/icons/cerrar.png" alt=""></button>
+                            <button [disabled]="item.flagPedido === 1" (click)="deleteItem(item)"><img src="assets/icons/cerrar.png" alt=""></button>
                         </div>
                     </li>
                 </ul>
@@ -37,22 +37,22 @@
                 <div class="precios">
                     <div class="precio">
                         <p>Subtotal</p>
-                        <p>S/. 2.00</p>
+                        <p>{{ variablesGlobales.carrito.totalPago | currency:'S/. ' }}</p>
                     </div>
                     <div class="precio">
                         <p>Descuento</p>
-                        <p>S/. 1.00</p>
+                        <p>{{ variablesGlobales.carrito.descuento | currency:'S/. ' }}</p>
                     </div>
                 </div>
                 <div class="total">
                     <div class="precio">
                         <p>Total</p>
-                        <p>S/. 1.00</p>
+                        <p>{{ (variablesGlobales.carrito.totalPago - variablesGlobales.carrito.descuento) | currency:'S/. ' }}</p>
                     </div>
                 </div>
             </div>
             <div class="button">
-                <button>Confirmar</button>
+                <button (click)="confirmPedido()">Confirmar Pedido</button>
             </div>
         </div>
     </div>

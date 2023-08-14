@@ -8,7 +8,7 @@
             <mat-form-field class="custom-form-field" appearance="fill">
                 <mat-label>ORDENAR POR</mat-label>
                 <mat-select>
-                    <mat-option *ngFor="let data of arrayOrden" [value]="data.nombre">
+                    <mat-option *ngFor="let data of variableGlobales.arrayOrden" [value]="data.nombre">
                         {{data.nombre}}
                     </mat-option>
                 </mat-select>
@@ -16,23 +16,23 @@
             <mat-form-field class="custom-form-field" appearance="fill">
                 <mat-label>CATEGORIA</mat-label>
                 <mat-select>
-                    <mat-option *ngFor="let data of arrayCategoria" [value]="data.nombre">
+                    <mat-option *ngFor="let data of variableGlobales.arrayCategoriaProducto" [value]="data.nombre">
                         {{data.nombre}}
-                      </mat-option>
+                    </mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="custom-form-field" appearance="fill">
                 <mat-label>PRECIO</mat-label>
                 <mat-select>
-                    <mat-option *ngFor="let data of arrayPrecio" [value]="data.nombre">
+                    <mat-option *ngFor="let data of variableGlobales.arrayPrecio" [value]="data.nombre">
                         {{data.nombre}}
-                      </mat-option>
+                    </mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="filterPages">
+        <!-- <div class="filterPages">
             <app-pagination [pageAll]="pageAll" [pageActive]="pageActive" (sendPageActive)="receivePageActive($event)"></app-pagination>
-        </div>
+        </div> -->
     </div>
     <div class="contentTable">
         <div class="title">
@@ -60,18 +60,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of platosArray">
+                    <tr *ngFor="let item of variableGlobales.productosArray">
                         <td>{{ item.idProducto }}</td>
                         <td><img [src]="item.urlImagen" alt=""></td>
-                        <td>{{ item.nomProducto }}</td>
+                        <td>{{ item.nombre }}</td>
                         <td>{{ item.precio }}</td>
                         <td>{{ item.nomCategoria }}</td>
                         <td>{{ item.nomUnidad }}</td>
                         <td>
-                            <button class="btn-edit">
+                            <button class="btn-edit" (click)="editItem(item)">
                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="14" height="14" x="0" y="0" viewBox="0 0 512 511" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M405.332 256.484c-11.797 0-21.332 9.559-21.332 21.332v170.668c0 11.754-9.559 21.332-21.332 21.332H64c-11.777 0-21.332-9.578-21.332-21.332V149.816c0-11.754 9.555-21.332 21.332-21.332h170.668c11.797 0 21.332-9.558 21.332-21.332 0-11.777-9.535-21.336-21.332-21.336H64c-35.285 0-64 28.715-64 64v298.668c0 35.286 28.715 64 64 64h298.668c35.285 0 64-28.714 64-64V277.816c0-11.796-9.54-21.332-21.336-21.332zm0 0" fill="#ffffff" data-original="#000000" class=""></path><path d="M200.02 237.05a10.793 10.793 0 0 0-2.922 5.438l-15.082 75.438c-.703 3.496.406 7.101 2.922 9.64a10.673 10.673 0 0 0 7.554 3.114c.68 0 1.387-.063 2.09-.211l75.414-15.082c2.09-.43 3.988-1.43 5.461-2.926l168.79-168.79-75.415-75.41zM496.383 16.102c-20.797-20.801-54.633-20.801-75.414 0l-29.524 29.523 75.414 75.414 29.524-29.527C506.453 81.465 512 68.066 512 53.816s-5.547-27.648-15.617-37.714zm0 0" fill="#ffffff" data-original="#000000" class=""></path></g></svg>
                             </button>
-                            <button class="btn-delete">
+                            <button class="btn-delete" (click)="deleteItem(item)">
                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="14" height="14" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M51.18 10.87H12.82a2.962 2.962 0 0 0-2.96 2.97v4.91a2.96 2.96 0 0 0 2.96 2.96h38.36a2.96 2.96 0 0 0 2.96-2.96v-4.91a2.962 2.962 0 0 0-2.96-2.97zM25.64 8a2 2 0 0 1 2-2h8.72a2 2 0 0 1 2 2v.87h2V8a3.999 3.999 0 0 0-4-4h-8.72a4.147 4.147 0 0 0-4 4.87h2zM14.47 55.3a4.913 4.913 0 0 0 4.92 4.7h25.22a4.913 4.913 0 0 0 4.92-4.7l1.49-31.59H12.98zm26.11-24.85a1.001 1.001 0 0 1 2 .09l-1.07 22.72a1.001 1.001 0 0 1-2-.09zm-9.58.04a1 1 0 0 1 2 0v22.73a1 1 0 0 1-2 0zm-8.62-1a1.017 1.017 0 0 1 1.04.96l1.07 22.72a1.016 1.016 0 0 1-1 1.05 1.002 1.002 0 0 1-1-.96l-1.07-22.72a1.012 1.012 0 0 1 .96-1.05z" fill="#ffffff" data-original="#000000" class=""></path></g></svg>
                             </button>
                         </td>

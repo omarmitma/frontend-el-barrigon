@@ -1,48 +1,49 @@
 <div class="wrapCatalogo wrapHoja">
     <div class="contentCatalogo">
         <div class="buttonFunction">
-            <button class="btn-function-users">
+            <button class="btn-function-users" (click)="llamarMesero()">
                 <div class="text"><p>LLAMAR MESERO</p></div>
                 <div class="iconData iconSinData">
                     <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="18" height="18" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M288.183 32.134C288.183 14.415 273.768 0 256.05 0c-42.57 1.616-42.559 62.658 0 64.267 17.718 0 32.133-14.415 32.133-32.133zM357.713 303.134l-76.227 60.979a14.998 14.998 0 0 1-9.37 3.287H160.073c-8.077 0-15.027-6.207-15.406-14.275-.406-8.614 6.458-15.725 14.983-15.725h63.2c18.488.075 33.367-15.826 32.055-34.267H90.227c-14.776 15.619-24.199 36.188-25.7 58.908L4.443 422.127c-5.858 5.857-5.858 15.355 0 21.213l64.267 64.267c5.86 5.86 15.356 5.856 21.213 0l60.546-60.546 139.37-15.485a15 15 0 0 0 7.714-3.195l110.487-88.388c11.099-8.873 16.119-23.195 13.321-36.858h-63.648zM256.05 64.267c-97.144 0-180.021 62.204-210.929 148.867h421.857C436.071 126.47 353.194 64.267 256.05 64.267zM497.05 243.134h-482c-8.284 0-15 6.716-15 15s6.716 15 15 15h482c19.723-.665 20.01-29.217 0-30z" fill="#ffffff" data-original="#000000" class=""></path></g></svg></div>
                     <p></p>
                 </div>
             </button>
-             <button class="btn-function-users">
+            <button class="btn-function-users" (click)="changeTipoPago()">
                 <div class="text"><p>TIPO DE PAGO</p></div>
                 <div class="iconData">
                     <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="18" height="18" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M320 0v128h128z" fill="#ffffff" data-original="#000000" class=""></path><path d="M320 160c-17.632 0-32-14.368-32-32V0H96C78.368 0 64 14.368 64 32v448c0 17.664 14.368 32 32 32h320c17.664 0 32-14.336 32-32V160H320zM176 97.984V80c0-8.832 7.168-16 16-16s16 7.168 16 16v18.016c10.016 2.272 19.36 6.496 27.072 12.768 6.88 5.568 7.904 15.648 2.304 22.496-5.6 6.88-15.68 7.872-22.496 2.304C208.832 130.688 200.704 128 192 128c-17.344 0-32 10.976-32 24s14.656 24 32 24c35.296 0 64 25.12 64 56 0 26.016-20.48 47.744-48 54.016V304c0 8.832-7.168 16-16 16s-16-7.168-16-16v-18.016c-10.016-2.272-19.36-6.496-27.072-12.768-6.88-5.6-7.904-15.68-2.304-22.528 5.6-6.912 15.648-7.872 22.496-2.304C175.168 253.312 183.296 256 192 256c17.344 0 32-10.976 32-24s-14.656-24-32-24c-35.296 0-64-25.12-64-56 0-26.016 20.48-47.744 48-54.016zM368 448H144c-8.832 0-16-7.168-16-16s7.168-16 16-16h224c8.832 0 16 7.168 16 16s-7.168 16-16 16zm0-64H144c-8.832 0-16-7.168-16-16s7.168-16 16-16h224c8.832 0 16 7.168 16 16s-7.168 16-16 16zm0-64h-64c-8.832 0-16-7.168-16-16s7.168-16 16-16h64c8.832 0 16 7.168 16 16s-7.168 16-16 16zm0-64h-64c-8.832 0-16-7.168-16-16s7.168-16 16-16h64c8.832 0 16 7.136 16 16 0 8.832-7.168 16-16 16z" fill="#ffffff" data-original="#000000" class=""></path></g></svg></div>
-                    <p>FACTURA</p>
+                    <p>{{ variableGlobales.tipoPago }}</p>
                 </div>
             </button>
-             <button class="btn-function-users">
+             <button class="btn-function-users" (click)="changeQuantityPersonas()">
                 <div class="text"><p>PERSONAS</p></div>
                 <div class="iconData">
                     <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="18" height="18" x="0" y="0" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M438.09 273.32h-39.596c4.036 11.05 6.241 22.975 6.241 35.404v149.65c0 5.182-.902 10.156-2.543 14.782h65.461c24.453 0 44.346-19.894 44.346-44.346v-81.581c.001-40.753-33.155-73.909-73.909-73.909zM107.265 308.725c0-12.43 2.205-24.354 6.241-35.404H73.91c-40.754 0-73.91 33.156-73.91 73.91v81.581c0 24.452 19.893 44.346 44.346 44.346h65.462a44.144 44.144 0 0 1-2.543-14.783v-149.65zM301.261 234.815h-90.522c-40.754 0-73.91 33.156-73.91 73.91v149.65c0 8.163 6.618 14.782 14.782 14.782h208.778c8.164 0 14.782-6.618 14.782-14.782v-149.65c0-40.754-33.156-73.91-73.91-73.91zM256 38.84c-49.012 0-88.886 39.874-88.886 88.887 0 33.245 18.349 62.28 45.447 77.524 12.853 7.23 27.671 11.362 43.439 11.362s30.586-4.132 43.439-11.362c27.099-15.244 45.447-44.28 45.447-77.524 0-49.012-39.874-88.887-88.886-88.887zM99.918 121.689c-36.655 0-66.475 29.82-66.475 66.475 0 36.655 29.82 66.475 66.475 66.475a66.095 66.095 0 0 0 26.195-5.388c13.906-5.987 25.372-16.585 32.467-29.86a66.05 66.05 0 0 0 7.813-31.227c0-36.654-29.82-66.475-66.475-66.475zM412.082 121.689c-36.655 0-66.475 29.82-66.475 66.475a66.045 66.045 0 0 0 7.813 31.227c7.095 13.276 18.561 23.874 32.467 29.86a66.095 66.095 0 0 0 26.195 5.388c36.655 0 66.475-29.82 66.475-66.475 0-36.655-29.82-66.475-66.475-66.475z" fill="#ffffff" data-original="#000000" class=""></path></g></svg></div>
-                    <p>14</p>
+                    <p>{{ variableGlobales.cantidadPersonas }}</p>
                 </div>
             </button>
-             <button class="btn-function-users">
+             <button class="btn-function-users" (click)="chosenMesa()">
                 <div class="text"><p>MESA</p></div>
                 <div class="iconData">
                     <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="18" height="18" x="0" y="0" viewBox="0 0 490.616 490.616" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M490.507 159.313a10.669 10.669 0 0 0-2.965-6.805v-.053l-74.667-74.667a10.668 10.668 0 0 0-7.573-3.147H84.053a10.663 10.663 0 0 0-7.605 3.2L3.029 152.508a10.586 10.586 0 0 0-1.995 3.008c-.149.32-.224.651-.341.981a10.537 10.537 0 0 0-.565 2.827c0 .224-.128.416-.128.651v32c0 .149.075.277.085.416.024 1.265.277 2.516.747 3.691 0 .075.085.139.117.213a10.504 10.504 0 0 0 1.952 2.891c.254.252.521.491.8.715a10.494 10.494 0 0 0 2.24 1.515c.325.175.66.331 1.003.469 1.175.472 2.425.729 3.691.757h32v202.667c0 5.891 4.776 10.667 10.667 10.667h10.667c5.891 0 10.667-4.776 10.667-10.667V202.641h32v117.333c0 5.891 4.776 10.667 10.667 10.667h10.667c5.891 0 10.667-4.776 10.667-10.667V202.641H351.97v117.333c0 5.891 4.776 10.667 10.667 10.667h10.667c5.891 0 10.667-4.776 10.667-10.667V202.641h32v202.666c0 5.891 4.776 10.667 10.667 10.667h10.667c5.891 0 10.667-4.776 10.667-10.667V202.641h32a10.539 10.539 0 0 0 3.723-.757 9.97 9.97 0 0 0 1.013-.48 10.5 10.5 0 0 0 2.229-1.504c.279-.227.546-.47.8-.725a10.494 10.494 0 0 0 1.92-2.837c0-.096.107-.16.149-.256a10.5 10.5 0 0 0 .736-3.701c0-.139.075-.245.075-.384v-32.021c.018-.236-.1-.428-.11-.663z" fill="#ffffff" data-original="#000000" class=""></path></g></svg></div>
-                    <p>1</p>
+                    <p>{{ variableGlobales.mesa }}</p>
                 </div>
             </button>
-             <button class="btn-function-users">
+             <button class="btn-function-users" (click)="chosenPay()">
                 <div class="text"><p>PAGAR </p></div>
                 <div class="iconData">
-                    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="18" height="18" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M32.2 28.692a3.079 3.079 0 0 1-3.532-.606l-.066-.066a8.031 8.031 0 1 0 3.6.672zM33 34h-2v-1a1 1 0 0 0-1-1v3a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3v1h-2v-1a3 3 0 0 1-3-3v-1h2v1a1 1 0 0 0 1 1v-3a3 3 0 0 1-3-3v-1a3 3 0 0 1 3-3v-1h2v1a3 3 0 0 1 3 3z" fill="#ffffff" data-original="#000000" class=""></path><path d="M21.019 30h-8.145A4.015 4.015 0 0 1 10 32.873v6.254A4.015 4.015 0 0 1 12.874 42h8.145a9.925 9.925 0 0 1 0-12zM27 33v1a1 1 0 0 0 1 1v-3a1 1 0 0 0-1 1zM30 40a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1zM13.832 13.445l1.835 2.755 6.727 2.883a1 1 0 0 1 .313.212l7.379 7.379A1.121 1.121 0 0 0 32 25.879a1.189 1.189 0 0 0-.277-.82l-6.475-7.4a1 1 0 0 1-.105-1.173L28 11.723V10h2v2a1 1 0 0 1-.143.515l-.756 1.26 3.68 4.6A1 1 0 0 1 33 19v4h2v-5.764L29.291 5.817 20.838 3H3v8.165l10.179 1.852a.994.994 0 0 1 .653.428zM36.981 42h8.145A4.015 4.015 0 0 1 48 39.127v-6.254A4.015 4.015 0 0 1 45.126 30H36.98a9.923 9.923 0 0 1 0 12zM41.58 48.126l-2.334 2.918a1.12 1.12 0 0 0-.246.7v.135a1.121 1.121 0 0 0 1.914.793l3.379-3.379 1.414 1.414-3.379 3.379A3.113 3.113 0 0 1 37.217 53H17a2 2 0 0 0-1.856 1.255l26.669 6.668 5.632-3.755A1.006 1.006 0 0 1 48 57h7V47H43.922a2.983 2.983 0 0 0-2.342 1.126zM57 45h4v14h-4z" fill="#ffffff" data-original="#000000" class=""></path><path d="M40.018 46.876A4.979 4.979 0 0 1 43.922 45H52V25H33.884a3.1 3.1 0 0 1 .116.8 3.271 3.271 0 0 1-.308 1.378 9.961 9.961 0 0 1 1.294.822H46a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 0 1 1 1v8a1 1 0 0 1-1 1 2 2 0 0 0-2 2 1 1 0 0 1-1 1H34.974a9.922 9.922 0 0 1-11.948 0H12a1 1 0 0 1-1-1 2 2 0 0 0-2-2 1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1 2 2 0 0 0 2-2 1 1 0 0 1 1-1h11.026a9.937 9.937 0 0 1 3.8-1.756L25.586 25H6v22h33.919zM27.232 16.89 31 21.196v-1.845l-2.997-3.746zM21 20.66V23h2v-.586l-1.571-1.57z" fill="#ffffff" data-original="#000000" class=""></path></g></svg></div>
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="18" height="18" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M32.2 28.692a3.079 3.079 0 0 1-3.532-.606l-.066-.066a8.031 8.031 0 1 0 3.6.672zM33 34h-2v-1a1 1 0 0 0-1-1v3a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3v1h-2v-1a3 3 0 0 1-3-3v-1h2v1a1 1 0 0 0 1 1v-3a3 3 0 0 1-3-3v-1a3 3 0 0 1 3-3v-1h2v1a3 3 0 0 1 3 3z" fill="#ffffff" data-original="#000000" class=""></path><path d="M21.019 30h-8.145A4.015 4.015 0 0 1 10 32.873v6.254A4.015 4.015 0 0 1 12.874 42h8.145a9.925 9.925 0 0 1 0-12zM27 33v1a1 1 0 0 0 1 1v-3a1 1 0 0 0-1 1zM30 40a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1zM13.832 13.445l1.835 2.755 6.727 2.883a1 1 0 0 1 .313.212l7.379 7.379A1.121 1.121 0 0 0 32 25.879a1.189 1.189 0 0 0-.277-.82l-6.475-7.4a1 1 0 0 1-.105-1.173L28 11.723V10h2v2a1 1 0 0 1-.143.515l-.756 1.26 3.68 4.6A1 1 0 0 1 33 19v4h2v-5.764L29.291 5.817 20.838 3H3v8.165l10.179 1.852a.994.994 0 0 1 .653.428zM36.981 42h8.145A4.015 4.015 0 0 1 48 39.127v-6.254A4.015 4.015 0 0 1 45.126 30H36.98a9.923 9.923 0 0 1 0 12zM41.58 48.126l-2.334 2.918a1.12 1.12 0 0 0-.246.7v.135a1.121 1.121 0 0 0 1.914.793l3.379-3.379 1.414 1.414-3.379 3.379A3.113 3.113 0 0 1 37.217 53H17a2 2 0 0 0-1.856 1.255l26.669 6.668 5.632-3.755A1.006 1.006 0 0 1 48 57h7V47H43.922a2.983 2.983 0 0 0-2.342 1.126zM57 45h4v14h-4z" fill="#ffffff" data-original="#000000" class=""></path><path d="M40.018 46.876A4.979 4.979 0 0 1 43.922 45H52V25H33.884a3.1 3.1 0 0 1 .116.8 3.271 3.271 0 0 1-.308 1.378 9.961 9.961 0 0 1 1.294.822H46a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 0 1 1 1v8a1 1 0 0 1-1 1 2 2 0 0 0-2 2 1 1 0 0 1-1 1H34.974a9.922 9.922 0 0 1-11.948 0H12a1 1 0 0 1-1-1 2 2 0 0 0-2-2 1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1 2 2 0 0 0 2-2 1 1 0 0 1 1-1h11.026a9.937 9.937 0 0 1 3.8-1.756L25.586 25H6v22h33.919zM27.232 16.89 31 21.196v-1.845l-2.997-3.746zM21 20.66V23h2v-.586l-1.571-1.57z" fill="#ffffff" data-original="#000000" class=""></path></g></svg></div>
                     <p></p>
                 </div>
             </button>
-             <button class="btn-function-users">
+            <!-- <button class="btn-function-users">
                 <div class="text"><p>LLAMAR MESERO</p></div>
                 <div class="iconData">
                     <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="18" height="18" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M288.183 32.134C288.183 14.415 273.768 0 256.05 0c-42.57 1.616-42.559 62.658 0 64.267 17.718 0 32.133-14.415 32.133-32.133zM357.713 303.134l-76.227 60.979a14.998 14.998 0 0 1-9.37 3.287H160.073c-8.077 0-15.027-6.207-15.406-14.275-.406-8.614 6.458-15.725 14.983-15.725h63.2c18.488.075 33.367-15.826 32.055-34.267H90.227c-14.776 15.619-24.199 36.188-25.7 58.908L4.443 422.127c-5.858 5.857-5.858 15.355 0 21.213l64.267 64.267c5.86 5.86 15.356 5.856 21.213 0l60.546-60.546 139.37-15.485a15 15 0 0 0 7.714-3.195l110.487-88.388c11.099-8.873 16.119-23.195 13.321-36.858h-63.648zM256.05 64.267c-97.144 0-180.021 62.204-210.929 148.867h421.857C436.071 126.47 353.194 64.267 256.05 64.267zM497.05 243.134h-482c-8.284 0-15 6.716-15 15s6.716 15 15 15h482c19.723-.665 20.01-29.217 0-30z" fill="#ffffff" data-original="#000000" class=""></path></g></svg></div>
                     <p></p>
                 </div>
-            </button>
+            </button> -->
         </div>
         <div class="contentFilter">
             <span class="text-div">FILTROS</span>
@@ -50,7 +51,7 @@
                 <mat-form-field class="custom-form-field" appearance="fill">
                     <mat-label>ORDENAR POR</mat-label>
                     <mat-select>
-                        <mat-option *ngFor="let data of arrayOrden" [value]="data.nombre">
+                        <mat-option *ngFor="let data of variableGlobales.arrayOrden" [value]="data.nombre">
                             {{data.nombre}}
                         </mat-option>
                     </mat-select>
@@ -58,7 +59,7 @@
                 <mat-form-field class="custom-form-field" appearance="fill">
                     <mat-label>CATEGORIA</mat-label>
                     <mat-select>
-                        <mat-option *ngFor="let data of arrayCategoria" [value]="data.nombre">
+                        <mat-option *ngFor="let data of variableGlobales.arrayCategoria" [value]="data.nombre">
                             {{data.nombre}}
                           </mat-option>
                     </mat-select>
@@ -66,22 +67,21 @@
                 <mat-form-field class="custom-form-field" appearance="fill">
                     <mat-label>PRECIO</mat-label>
                     <mat-select>
-                        <mat-option *ngFor="let data of arrayPrecio" [value]="data.nombre">
+                        <mat-option *ngFor="let data of variableGlobales.arrayPrecio" [value]="data.nombre">
                             {{data.nombre}}
                           </mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
             <div class="filterPages">
-                <app-pagination [pageAll]="pageAll" [pageActive]="pageActive" (sendPageActive)="receivePageActive($event)"></app-pagination>
             </div>
         </div>
         <div class="contentItemByCategory">
-            <div class="itemByCategory" *ngFor="let data of returnCartaPlatosWeb()">
+            <div class="itemByCategory" *ngFor="let data of variableGlobales.cartaReturn">
                 <h4>{{ data.nomCategoria }}</h4>
                 <div class="items">
                     <div class="item" *ngFor="let item of data.platos">
-                        <h5>{{ item.nomPlato }}</h5>
+                        <h5>{{ item.nombre }}</h5>
                         <div class="image"><img [src]="item.urlImagen" alt=""></div>
                         <div class="description">
                             <p class="precio">{{ item.precio  | currency: 'S/. ' }}</p>
@@ -101,4 +101,8 @@
     </div>
 </div>
 
+<app-modal-metodo-pago></app-modal-metodo-pago>
+
 <app-modal-detallar-plato [plato]="platoChosen" [crud]="typeCrud" (changeCrud)="receiveChangeCrud($event)" (sendRegister)="receiveRegister($event)"></app-modal-detallar-plato>
+
+<app-modal-chosen-mesa [idMesa]="variableGlobales.idMesa" (changeCrud)="receiveChangeCrud($event)" (sendRegister)="receiveRegisterMesa($event)"></app-modal-chosen-mesa>

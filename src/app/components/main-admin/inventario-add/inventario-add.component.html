@@ -1,13 +1,51 @@
 <div class="wrapInventarioAdd">
     <div class="title">
-        <h2>AGREGAR INVENTARIO</h2>
+        <h2>{{ typeCrud }} INVENTARIO</h2>
+        <div class="buttons">
+            <button class="btn-default" (click)="grabar()"><p>{{ typeCrud }}</p></button>
+        </div>
     </div>
     <div class="contentInventarioAdd">
-        <div class="form"></div>
+        <div class="formInputs">
+            <div class="inputData-type-2">
+                <span>Nombre:</span>
+                <input type="text" [(ngModel)]="plato.nombre">
+            </div>
+            <div class="inputData-type-2">
+                <span>Abreviatura:</span>
+                <input type="text" [(ngModel)]="plato.abreviatura">
+            </div>
+            <div class="inputData-type-2">
+                <span>Precio:</span>
+                <input type="number" [(ngModel)]="plato.precio">
+            </div>
+            <div class="inputData-type-2">
+                <span>Precio Adicional:</span>
+                <input type="number" [(ngModel)]="plato.precioAdicional">
+            </div>
+            <div class="inputData-type-2">
+                <span>Precio Oferta:</span>
+                <input type="number" [(ngModel)]="plato.precioOferta">
+            </div>
+            <div class="inputData-type-2">
+                <span>Tiempo Espera:</span>
+                <input type="text" [(ngModel)]="plato.tiempoEspera">
+            </div>
+            <mat-form-field class="custom-form-field" appearance="fill">
+                <mat-label>CATEGORIA</mat-label>
+                <mat-select [(ngModel)]="plato.idCategoria">
+                    <mat-option *ngFor="let data of variableGlobales.arrayCategoria" [value]="data.idDetalleMaestro">
+                        {{data.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        
         <div class="contentImage">
             <div class="image" id="dropZoneAddImage">
                 <div class="content">
                     <span class="filename">{{ mainFunction.textDrop }} aqui</span>
+                    <img *ngIf="plato.imagen.base64 !== undefined" [src]="plato.imagen.base64">
                     <img *ngIf="plato.imagen.base64 === undefined && plato.urlImagen !== ''" [src]="plato.urlImagen">
                     <input type="file" class="input" id="inputImageDropZone" (change)="chosenImage($event)" accept="image/png, image/jpeg">
                 </div>
@@ -20,5 +58,60 @@
                 </label>
             </div>
         </div>
+        <div class="contentDetails">
+            <div class="title">
+                <p>Productos</p>
+                <div class="buttons">
+                    <button class="btn-default btn-with-icon" (click)="openModalChosenProductos()">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="14" height="14" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M16 1a15 15 0 1 0 15 15A15.005 15.005 0 0 0 16 1zm6.81 17.19h-4.62v4.62a2.19 2.19 0 0 1-4.38 0v-4.62H9.19a2.19 2.19 0 1 1 0-4.38h4.62V9.19a2.19 2.19 0 0 1 4.38 0v4.62h4.62a2.19 2.19 0 1 1 0 4.38z" fill="#ffffff" data-original="#000000" class=""></path></g></svg>
+                        </div>
+                        <p>ELEGIR</p>
+                    </button>
+                </div>
+            </div>
+            <div class="contentListCart">
+                <!-- Aquí se mostrara el contenido de todos los productos -->
+               <div class="item-cart" *ngFor="let producto of plato.detallePlatos">
+                    <div class="image"><img [src]="producto.urlImagen"></div>
+                    <div class="data name">
+                        <p class="cab">{{ producto.nomCategoria }}</p>
+                        <p class="nombre">{{ producto.nomProducto }}</p>
+                    </div>
+                    <div class="data price">
+                        <p class="cab">Precio</p>
+                        <div class="input">
+                            <p>S/. </p>
+                            <input type="number" [(ngModel)]="producto.precioUnit">
+                        </div>
+                    </div>
+                    <div class="data quantity">
+                        <p class="cab">Cantidad</p>
+                        <div class="input">
+                            <input type="number" [(ngModel)]="producto.cantidad">
+                        </div>
+                    </div>
+                    <div class="data quantity">
+                        <p class="cab">Requerido</p>
+                        <div class="input">
+                            <input type="checkbox" [(ngModel)]="producto.flagRequeridoBool">
+                        </div>
+                    </div>
+                    <div class="data delete">
+                        <button (click)="deleteRegister(producto)" class="btn-delete">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="12" height="12" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M51.18 10.87H12.82a2.962 2.962 0 0 0-2.96 2.97v4.91a2.96 2.96 0 0 0 2.96 2.96h38.36a2.96 2.96 0 0 0 2.96-2.96v-4.91a2.962 2.962 0 0 0-2.96-2.97zM25.64 8a2 2 0 0 1 2-2h8.72a2 2 0 0 1 2 2v.87h2V8a3.999 3.999 0 0 0-4-4h-8.72a4.147 4.147 0 0 0-4 4.87h2zM14.47 55.3a4.913 4.913 0 0 0 4.92 4.7h25.22a4.913 4.913 0 0 0 4.92-4.7l1.49-31.59H12.98zm26.11-24.85a1.001 1.001 0 0 1 2 .09l-1.07 22.72a1.001 1.001 0 0 1-2-.09zm-9.58.04a1 1 0 0 1 2 0v22.73a1 1 0 0 1-2 0zm-8.62-1a1.017 1.017 0 0 1 1.04.96l1.07 22.72a1.016 1.016 0 0 1-1 1.05 1.002 1.002 0 0 1-1-.96l-1.07-22.72a1.012 1.012 0 0 1 .96-1.05z" fill="#ffffff" data-original="#000000" opacity="1" class=""></path></g></svg>
+                        </button>
+                    </div>
+                </div>
+           </div>
+        </div>
+        <div class="contentObservation">
+            <div class="observation">
+                <p>OBSERVACION</p>
+                <textarea cols="30" rows="3" [(ngModel)]="plato.observacion" ></textarea>
+            </div>
+        </div>
     </div>
 </div>
+
+<app-modal-chosen-productos [productosChosenPlato]="productosChosenPlato" (changeCrud)="receiveChangeCrudProducto($event)" (sendRegister)="receiveRegisterProductos($event)"></app-modal-chosen-productos>

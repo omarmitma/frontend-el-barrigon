@@ -29,6 +29,7 @@ export class ModalDetallarPlatoComponent implements OnInit , OnChanges {
   ngOnInit(): void {
   }
 
+
   //Abrir/Cerrar Modal para buscar
   openModal(){
     this.platoNow = new Platos();
@@ -40,12 +41,13 @@ export class ModalDetallarPlatoComponent implements OnInit , OnChanges {
     this.sendRegister.emit(this.platoNow);
     this.openModal();
   }
-  changeSelectIngrediente(data:DetallePlato,bool:boolean){
+  changeSelectIngrediente(data:DetallePlato){
     if(data.flagRequerido === 1){
       this.alert.alertDefault("Este ingrediente es requerido","");
       return;
     }
-    data.flagSelect = bool;
+    if(data.flagSelect)data.flagSelect = false;
+    else data.flagSelect = true;
     this.calcPrice();
   }
 
@@ -57,12 +59,12 @@ export class ModalDetallarPlatoComponent implements OnInit , OnChanges {
   }
 
   calcPrice(){
-    this.platoNow.precio = this.platoNow.precioAdicional;
+    this.platoNow.precioCarrito = this.platoNow.precioAdicional;
     this.platoNow.detallePlatos.forEach(detalle => {
       if(!detalle.flagSelect)return;
-      this.platoNow.precio += (detalle.cantidad || 0) * detalle.precioUnit;
+      this.platoNow.precioCarrito += (detalle.cantidad || 0) * detalle.precioUnit;
     });
-    this.platoNow.precio = this.platoNow.precio * this.platoNow.cantidad;
-    this.platoNow.precio = Number((this.platoNow.precio).toFixed(2));
+    this.platoNow.precioCarrito = this.platoNow.precioCarrito * this.platoNow.cantidad;
+    this.platoNow.precioCarrito = Number((this.platoNow.precioCarrito).toFixed(2));
   }
 }

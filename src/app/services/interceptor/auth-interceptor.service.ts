@@ -22,7 +22,7 @@ export class AuthInterceptorService implements HttpInterceptor{
     null
   );
 
-  constructor(private alert:Alert, private router:Router,
+  constructor(private alert:Alert, private router:Router, private mainFunction:MainFunction,
     private textShared:TextShared){}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -31,59 +31,32 @@ export class AuthInterceptorService implements HttpInterceptor{
    
     request = this.addAuthenticationToken(request);
 
-    return from(this.handle(request, next)).pipe(
-      retry(1),
-      catchError(async(error: HttpErrorResponse) => {
-        if (error && error.status === 401) {
-          //Si es necesario el token
-          if(request.context.get(NO_API_KEY)){
-            this.alert.alertError("Credenciales Incorrectas","");
-            return throwError(error);
-          }
-          if(request.context.get(TIPO_TOKEN) === 0){
-            this.router.navigate(['']);
-            return throwError(error);
-          }
+    return next.handle(request).pipe(
+      catchError((error: HttpErrorResponse) => {
+        this.textShared.textCarga = "ERROR -" + this.textShared.textCarga;
+        if(error.error === null){
+          this.alert.alertErrorHtml2(`Error ${error.status}`,error.message);
         }
-        else {
-
-          this.textShared.textCarga = "ERROR -" + this.textShared.textCarga;
-
-          if(error.error === null){
-            this.alert.alertErrorHtml2(`Error ${error.status}`,error.message);
-          }
-          else if(error.error.errors !== undefined){
-            this.alert.alertErrorHtml2(`Error ${error.status}`,JSON.stringify(error.error.errors).toString());
-          }
-          else{
-            this.alert.alertErrorHtml2(`Error ${error.status}`,error.error);
-          }
-        
-          return throwError(error);
+        else if(error.error.errors !== undefined){
+          this.alert.alertErrorHtml2(`Error ${error.status}`,JSON.stringify(error.error.errors).toString());
         }
+        else if(error.error.message !== undefined){
+          this.alert.alertErrorHtml2(`Error ${error.status}`,JSON.stringify(error.error.message).toString());
+        }
+        else{
+          this.alert.alertErrorHtml2(`Error ${error.status}`,error.error);
+        }
+        this.mainFunction.loadingMain = false;
+        return throwError(error);
       })
     ) as Observable<HttpEvent<any>>;
 
+
   }
 
-  async handle(req: HttpRequest<any>, next: HttpHandler) {
-    return await lastValueFrom(next.handle(this.addAuthenticationToken(req)));
-  }
-
-  //
-  private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
-    if (!this.isRefreshing) {
-      this.isRefreshing = true;
-      this.refreshTokenSubject.next(null);
-    }
-
-    return this.refreshTokenSubject.pipe(
-      filter(token => token !== null),
-      take(1),
-      switchMap((token:any) => next.handle(this.addAuthenticationToken(request)))
-    );
-  }
-
+  // async handle(req: HttpRequest<any>, next: HttpHandler) {
+  //   return await lastValueFrom(next.handle(this.addAuthenticationToken(req)));
+  // }
 
   //Agregamos el token en la cabezera
   private addAuthenticationToken(request: HttpRequest<any>): HttpRequest<any> {

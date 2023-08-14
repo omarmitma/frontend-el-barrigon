@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TextShared } from '../../functions/textShared';
 
 @Component({
   selector: 'app-loading',
@@ -9,7 +10,7 @@ export class LoadingComponent implements OnInit {
   
   @Input() loadingActive:boolean = true;
 
-  constructor() { }
+  constructor(public textShared:TextShared) { }
 
   ngOnInit(): void {
   }

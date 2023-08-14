@@ -7,21 +7,6 @@ export class DetallePedidoPersonalizado{
         this.fecRegistro = f.getFullYear() + "-" + mes + "-" + day ;
         this.fecModifica = f.getFullYear() + "-" + mes + "-" + day ;
     }
-    
-
-    // idPedidoDetalle:number = 0;
-    // idPedidoDetalleDet:number = 0;
-    // idPlatos:number = 0;
-    // idIngrediente:number = 0;
-    // nomIngrediente:string = "";
-    // cantidad:number = 0;
-    // cantidadMaxima:number = 0;
-    // idMedida:number = 0;
-    // nomMedida:string = "";
-    // abrMedida:string = "";
-    // required:boolean = false;
-    // select:boolean = true;
-    // precioUnit:number = 0;
 
     idDetallePedidoPersonalizado:number = 0;
     idDetallePedido:number = 0;

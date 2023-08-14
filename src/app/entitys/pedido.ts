@@ -29,6 +29,8 @@ export class Pedido{
     estado:number = 0;
     accion:number = 0;
 
+    nomMesa:string = "";
+    
     detallePedidos:DetallePedido[] = [];
     venta:Venta[] = [];
 }

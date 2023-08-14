@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +34,20 @@ import { PedidoComponent } from './components/main-admin/pedido/pedido.component
 import { NgxMasonryModule } from 'ngx-masonry';
 import { InventarioIngredienteComponent } from './components/main-admin/inventario-ingrediente/inventario-ingrediente.component';
 import { InventarioIngredienteAddComponent } from './components/main-admin/inventario-ingrediente-add/inventario-ingrediente-add.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptorService } from './services/interceptor/auth-interceptor.service';
+import { TextShared } from './shared/functions/textShared';
+import { Singleton } from './library/Singleton';
+import { ModalChosenMesaComponent } from './shared/components/modals/modal-chosen-mesa/modal-chosen-mesa.component';
+import { CreditCardFormComponent } from './shared/components/otros/credit-card-form/credit-card-form.component';
+import { PagoComponent } from './components/main/pago/pago.component';
+import { ValidationForms } from './shared/functions/validation';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ModalChosenProductosComponent } from './shared/components/modals/modal-chosen-productos/modal-chosen-productos.component';
+import { ModalMetodoPagoComponent } from './shared/components/modals/modal-metodo-pago/modal-metodo-pago.component';
+import { CloudinaryFunction } from './shared/functions/cloudinary';
+import { ModalChosenRangeFechaComponent } from './shared/components/modals/modal-chosen-range-fecha/modal-chosen-range-fecha.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +72,13 @@ import { InventarioIngredienteAddComponent } from './components/main-admin/inven
     StatisticsComponent,
     PedidoComponent,
     InventarioIngredienteComponent,
-    InventarioIngredienteAddComponent
+    InventarioIngredienteAddComponent,
+    ModalChosenMesaComponent,
+    CreditCardFormComponent,
+    PagoComponent,
+    ModalChosenProductosComponent,
+    ModalMetodoPagoComponent,
+    ModalChosenRangeFechaComponent
   ],
   imports: [
     BrowserModule,
@@ -66,14 +86,21 @@ import { InventarioIngredienteAddComponent } from './components/main-admin/inven
     BrowserAnimationsModule,
     MatSelectModule,
     FormsModule,
+    HttpClientModule,
     MatButtonModule,
     MatTooltipModule,
-    NgxMasonryModule
+    NgxMasonryModule,
+    CarouselModule
   ],
   providers: [
     MainFunction,
+    TextShared,
     VariablesGlobales,
-    Alert
+    ValidationForms,
+    Singleton,
+    Alert,
+    CloudinaryFunction,
+    {provide: HTTP_INTERCEPTORS,useClass: AuthInterceptorService,multi: true}
   ],
   bootstrap: [AppComponent]
 })

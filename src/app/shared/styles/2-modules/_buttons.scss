@@ -114,10 +114,16 @@
     border-radius: 3px;
     background-color: $background-button-edit;
 }
+.btn-success{
+    padding: 5px;
+    border-radius: 3px;
+    background-color: $background-button-success !important;
+}
+
 .btn-delete{
     padding: 5px;
     border-radius: 3px;
-    background-color: $background-button-delete;
+    background-color: $background-button-delete !important;
 }
 
 .btn-question{
@@ -129,6 +135,7 @@
     justify-content: center;
     align-items: center;
 }
+
 // .btn-select-check{
 //     background-color: $background-button-select-check ;
 // }

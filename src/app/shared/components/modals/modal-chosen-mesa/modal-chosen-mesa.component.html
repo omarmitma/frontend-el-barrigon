@@ -1,0 +1,31 @@
+<div class="wrapModal" id="wrapModalChosenMesa">
+    <div class="backgroundModal"></div>
+    <div class="modal">
+        <div class="header">
+            <div class="title">
+                <p>ESCOGER MESA</p>
+                <button (click)="openModal()">
+                    <img src="assets/icons/cerrar.png">
+                </button>
+            </div>
+        </div>
+        <div class="body">
+            <div class="contentTables">
+                <button class="table " *ngFor="let mesa of variableGlobales.mesasArray" (click)="addRegister(mesa)"
+                [ngClass]="{'table-1':mesa.estadoMesa === 1,'table-2':mesa.estadoMesa !== 1}">
+                    <p>{{ mesa.nombre }}</p>
+                    <div class="funciones">
+                    </div>
+                    <div class="time">
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="buttons">
+                <!-- <button class="add" (click)="addRegister()" >ACEPTAR</button> -->
+                <button class="cancel" (click)="openModal()">CANCELAR</button>
+            </div>
+        </div>
+    </div>
+</div>

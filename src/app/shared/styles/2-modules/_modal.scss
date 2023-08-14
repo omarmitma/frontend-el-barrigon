@@ -36,6 +36,8 @@
         overflow: auto;
         background-color: $white;
         border-radius: 4px;
+        display: grid;
+        grid-auto-rows: max-content 1fr max-content;
         .header{
             padding: 10px;
             border-bottom: 2px solid rgba($black, $alpha: 0.5);
@@ -92,11 +94,30 @@
     }
 }
 
+
+.contentAllItems{
+    border-right: 1px solid #000;
+}
+
+@media(min-width:510px){
+    .body-2-50{
+        display: grid;
+        grid-template-columns: 49% 49%;
+        gap: 2%;
+    }
+}
+
+
 @media(min-width:875px){
     .wrapModal{
         .modal{
             .body{
                 grid-template-columns: repeat(2, calc(98% / 2));
+            }
+            .body-2{
+                display: grid;
+                grid-template-columns: 1fr 360px;
+                gap: 10px;
             }
         }
     }

@@ -9,6 +9,7 @@ export class MesaFunciones{
     }
     idMesaFunciones:number = 0;
     idMesa:number = 0;
+    idFuncion:number = 0;
     descripcion:string = "";
     horSolicitada:string = "";
 

@@ -2,16 +2,42 @@ import { Injectable } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Images } from 'src/app/entitys/otros/images';
 import { Alert } from './alerts';
+import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import { UsuarioLogin } from 'src/app/entitys/usuarioLogin';
 
 @Injectable()
 export class MainFunction {
 
     loadingMain:boolean = false;
-    usuarioLogueado:string = "OMAR";
+    usuarioLogueado:UsuarioLogin = new UsuarioLogin();
     
+    private hubConnection: HubConnection;
 
-    constructor(private sanitizer:DomSanitizer, private alert:Alert){}
-
+    constructor(private sanitizer:DomSanitizer, private alert:Alert){
+      this.hubConnection = new HubConnectionBuilder()
+        .withUrl('https://localhost:44328/hub')
+        .build();
+  
+      this.startConnection();
+    }
+  
+    private async startConnection() {
+      try {
+        await this.hubConnection.start();
+        console.log('Conexión establecida con el hub de SignalR');
+      } catch (error) {
+        console.error('Error al establecer la conexión con el hub de SignalR:', error);
+      }
+    }
+  
+    public sendMessage(user: string, message: string) {
+      this.hubConnection.invoke('SendMessage', user, message)
+        .catch(error => console.error('Error al enviar el mensaje:', error));
+    }
+  
+    public onReceiveMessage(callback: (user: string, message: string) => void) {
+      this.hubConnection.on('ReceiveMessage', callback);
+    }
     //Abrir el navegador
     openModalSearch(elementId:string){
         let contentNavigation = document.getElementById(elementId);
@@ -97,4 +123,8 @@ export class MainFunction {
         this.textDrop = "Arrastrar";
     }
 
+    //Guardar token al loguearse
+    addSessionToken(usuario:any){
+        localStorage.setItem('userData', JSON.stringify(usuario));
+    }
 }

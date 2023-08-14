@@ -1,3 +1,5 @@
+import { Cliente } from "./cliente";
+import { Empleado } from "./empleado";
 
 export class UsuarioLogin{
     constructor() {
@@ -30,4 +32,7 @@ export class UsuarioLogin{
     nomUsuModifica:string = "";
     estado:number = 0;
     accion:number = 0;
+
+    clientes:Cliente[] = [];
+    empleados:Empleado[] = [];
 }

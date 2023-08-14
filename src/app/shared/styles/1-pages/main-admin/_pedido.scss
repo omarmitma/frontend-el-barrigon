@@ -72,6 +72,9 @@
             }
             .button{
                 margin-top: 10px;
+                display: grid;
+                grid-template-columns: 49% 49%;
+                gap: 2%;
                 button{
                     width: 100%;
                     padding: 8px;

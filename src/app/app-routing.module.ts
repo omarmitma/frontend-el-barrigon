@@ -17,11 +17,13 @@ import { PedidoComponent } from './components/main-admin/pedido/pedido.component
 import { InventarioIngredienteComponent } from './components/main-admin/inventario-ingrediente/inventario-ingrediente.component';
 import { InventarioAddComponent } from './components/main-admin/inventario-add/inventario-add.component';
 import { InventarioIngredienteAddComponent } from './components/main-admin/inventario-ingrediente-add/inventario-ingrediente-add.component';
+import { PagoComponent } from './components/main/pago/pago.component';
 
 const routes: Routes = [
   { path: 'login', component: AuthenticationComponent },
   { path: 'main', component: MainComponent,children:[
     {path:'',component:CatalogoComponent},
+    {path:'pay',component:PagoComponent},
     {path:'shoppingCart',component:ShoppingCartComponent}
   ]},
   { path: 'admin',component:MainAdminComponent,children:[
@@ -29,8 +31,10 @@ const routes: Routes = [
     {path:'mesas',component:TablesComponent},
     {path:'inventario',component:InventarioComponent},
     {path:'inventario/add',component:InventarioAddComponent},
+    {path:'inventario/edit/:idPlato',component:InventarioAddComponent},
     {path:'ingredientes',component:InventarioIngredienteComponent},
     {path:'ingredientes/add',component:InventarioIngredienteAddComponent},
+    {path:'ingredientes/edit/:idProducto',component:InventarioIngredienteAddComponent},
     {path:'pedido',component:PedidoComponent},
     {path:'statistics',component:StatisticsComponent},
     {path:'master',component:MasterComponent},

@@ -1,6 +1,7 @@
 import { DetalleCarritoPersonalizado } from "./detalleCarritoPersonalizado";
 import { DetallePedidoPersonalizado } from "./detallePedidoPersonalizado";
 import { DetallePlato } from "./detallePlato";
+import { Images } from "./otros/images";
 
 export class Producto{
     constructor() {
@@ -11,18 +12,6 @@ export class Producto{
         this.fecRegistro = f.getFullYear() + "-" + mes + "-" + day ;
         this.fecModifica = f.getFullYear() + "-" + mes + "-" + day ;
     }
-
-    // idIngrediente:number = 0;
-    // nomIngrediente:string = "";
-    // precioUnit:number = 0;
-    // urlImagen:string = "";
-    // idCategoria:number = 0;
-    // nomCategoria:string = "";
-    // observacion:string = "";
-    // idUnidad:number = 0;
-    // nomUnidad:string = "";
-    // cantidad:number = 0;
-
     idProducto:number = 0;
     nombre:string = "";
     precio:number = 0;
@@ -32,6 +21,7 @@ export class Producto{
     idUnidad:number = 0;
     urlImagen:string = "";
     observacion:string = "";
+    imagen:Images = new Images();
 
     fecRegistro:string = "";
     horRegistro:string = "";
@@ -44,12 +34,14 @@ export class Producto{
     estado:number = 0;
     accion:number = 0;
 
-    nomProducto:string = "";
     nomLinea:string = "";
     nomSubLinea:string = "";
     nomCategoria:string = "";
     abrUnidad:string = "";
     nomUnidad:string = "";
+
+    cantidad:number = 0;
+    flagRequerido:boolean = false;
 
     detalleCarritoPersonalizados:DetalleCarritoPersonalizado[] = [];
     detallePedidoPersonalizados:DetallePedidoPersonalizado[] = [];

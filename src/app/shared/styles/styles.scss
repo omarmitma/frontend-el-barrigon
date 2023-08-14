@@ -1,12 +1,10 @@
-
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 
 @import '0-base/base-dir';
 @import '1-pages/pages-dir';
 @import '2-modules/modules-dir';
 @import '3-helpers/helpers-dir';
-
-
-
 
 :root {
   --transform-text: none;
@@ -16,7 +14,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto Condensed', sans-serif;
+  // font-family: 'Roboto Condensed', sans-serif;
 }
 
 a{

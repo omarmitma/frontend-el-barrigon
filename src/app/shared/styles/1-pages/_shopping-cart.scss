@@ -31,6 +31,7 @@
                         width: 100%;
                         align-items: center;
                         justify-content: center;
+                        padding: 5px;
                         .image{
                             img{
                                 width: 80px;
@@ -121,4 +122,9 @@
             }
         }
     }   
+}
+
+.item-pedido{
+    background-color: rgba($color: $black, $alpha: 0.2);
+    border-bottom: 1px solid $black;
 }

@@ -5,8 +5,7 @@
 export const environment = {
   production: false,
 
-  urlApi: "https://localhost:7125/api/", 
-  urlApiImage:"https://localhost:7125/api/",
+  urlApi: "https://localhost:44328/api/",
   
 
   upload_preset:"img_producto_cloudinary",

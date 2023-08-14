@@ -108,4 +108,20 @@ export class Alert {
             cancelButtonText: 'Cancelar',
         });
     }
+
+    alertGetValue(title:string){
+        return Swal.fire({
+            title: title,
+            input: 'text',
+            inputAttributes: {
+              autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Aceptar',
+            showLoaderOnConfirm: true,
+            preConfirm: (login) => {
+              return login
+            },
+          });
+    }
 }

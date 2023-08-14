@@ -25,4 +25,8 @@ export class DetalleCarritoPersonalizado{
     nomUsuModifica:string = "";
     estado:number = 0;
     accion:number = 0;
+
+    nomProducto:string = "";
+    abrMedida:string = "";
+    nomMedida:string = "";
 }
