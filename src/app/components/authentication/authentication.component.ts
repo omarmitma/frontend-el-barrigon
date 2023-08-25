@@ -17,47 +17,6 @@ export class AuthenticationComponent implements OnInit {
 
   constructor(private alert:Alert, private loginService:LoginService, private router:Router, private mainFunction:MainFunction) { }
   
-  // dynamicSlides = [
-  //   {
-  //     id: 1,
-  //     src: 'https://res.cloudinary.com/dthzuimrn/image/upload/v1689797799/866f26d7-26a8-4fda-8899-60d9434739e1_ugixv1.jpg',
-  //     alt: 'Side 1',
-  //     title: 'Side 1',
-
-  //   },
-  //   {
-  //     id: 2,
-  //     src: 'https://res.cloudinary.com/dthzuimrn/image/upload/v1689797799/866f26d7-26a8-4fda-8899-60d9434739e1_ugixv1.jpg',
-  //     alt: 'Side 1',
-  //     title: 'Side 1',
-
-  //   },
-  //   {
-  //     id: 3,
-  //     src: 'https://res.cloudinary.com/dthzuimrn/image/upload/v1689797799/866f26d7-26a8-4fda-8899-60d9434739e1_ugixv1.jpg',
-  //     alt: 'Side 1',
-  //     title: 'Side 1',
-
-  //   },
-
-  // ]
-
-  // customOptions: OwlOptions = {
-  //   loop: true,
-  //   autoplay: false,
-  //   autoplayHoverPause: false,
-  //   items: 1,
-  //   dots: true,
-  //   dotsEach: false,
-  //   responsive: {
-  //     0: {
-  //       items: 1,
-  //     },
-
-  //   },
-  //   nav: false,
-  // }
-
   ngOnInit(): void {
   }
 

@@ -47,6 +47,7 @@ import { ModalChosenProductosComponent } from './shared/components/modals/modal-
 import { ModalMetodoPagoComponent } from './shared/components/modals/modal-metodo-pago/modal-metodo-pago.component';
 import { CloudinaryFunction } from './shared/functions/cloudinary';
 import { ModalChosenRangeFechaComponent } from './shared/components/modals/modal-chosen-range-fecha/modal-chosen-range-fecha.component';
+import { FilterItems } from './shared/functions/filterItems';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { ModalChosenRangeFechaComponent } from './shared/components/modals/modal
     Singleton,
     Alert,
     CloudinaryFunction,
+    FilterItems,
     {provide: HTTP_INTERCEPTORS,useClass: AuthInterceptorService,multi: true}
   ],
   bootstrap: [AppComponent]

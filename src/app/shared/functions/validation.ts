@@ -54,7 +54,7 @@ export class ValidationForms {
         if(data.nombre.length <= 0 )errorAddCabezeraCore.errores.push("Falta completar el nombre");
         if(data.precio <= 0 || data.precio === undefined)errorAddCabezeraCore.errores.push("El precio debe ser mayor a 0");
         if(data.tiempoEspera.length <= 0 )errorAddCabezeraCore.errores.push("Falta completar el tiempo de espera");
-        if(data.detallePlatos.length <= 0)errorAddCabezeraCore.errores.push("Falta detalles");
+        // if(data.detallePlatos.length <= 0)errorAddCabezeraCore.errores.push("Falta detalles");
 
         if(errorAddCabezeraCore.errores.length > 0)errores.push(errorAddCabezeraCore);
 

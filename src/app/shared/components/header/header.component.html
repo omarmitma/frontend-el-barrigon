@@ -22,7 +22,7 @@
                 </button>
     
                 <div class="menuUser" [ngClass]="{'menuUserActive':activeMenuUser}">
-                    <p>¡Hola, {{ mainFunction.usuarioLogueado }}!</p>
+                    <p>¡Hola, {{ mainFunction.usuarioLogueado.nombre }}!</p>
                     <ul>
                         <li><button (click)="openMenuUser()" [routerLink]="['/main/account']">Tu cuenta</button></li>
                         <li><button (click)="openMenuUser()" [routerLink]="['/main/frequentQuestions']">Preguntas frecuentes y ayuda</button></li>

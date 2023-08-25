@@ -34,8 +34,7 @@ export class HeaderComponent implements OnInit {
   logOut(){
     this.alert.alertQuestion("¿Seguro de cerrar sesion?","").then(result=>{
       if(result.isConfirmed){
-        localStorage.removeItem('tokenUser');
-        localStorage.removeItem('tokenQlever');
+        localStorage.removeItem('userData');
         this.router.navigate(['']);
       }
     });

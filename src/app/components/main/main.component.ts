@@ -23,10 +23,11 @@ export class MainComponent implements OnInit {
     private carritoService:CarritoService) { }
 
   async ngOnInit(): Promise<void> {
+    this.variableGlobales.resetAllVariables();
     await this.getDataUser();
     await this.getFiltros();
-    this.returnCartaPlatosWeb();
-    this.getDataFuncionCliente();
+    this.variableGlobales.returnCartaPlatosWeb();
+    this.variableGlobales.getDataFuncionCliente();
   }
 
   async getDataUser(){
@@ -63,6 +64,8 @@ export class MainComponent implements OnInit {
             d.flagSelect = true;
           });
         });
+
+        this.variableGlobales.platosArray.forEach(d => this.variableGlobales.platosArrayFilter.push(Object.assign({},d)));
       }
     });
     await this.mesaService.buscarAll().then(resolve => {
@@ -82,54 +85,8 @@ export class MainComponent implements OnInit {
       }
     });
 
-    this.innerPlatoCarrito();
+    this.variableGlobales.innerPlatoCarrito();
 
   }
 
-  returnCartaPlatosWeb(){
-    this.variableGlobales.platosArray.forEach(data => {
-      let cartaNow = this.variableGlobales.cartaReturn.filter(d => d.idCategoria === data.idCategoria);
-      let cartaAdd:CartaPlatosWeb = new CartaPlatosWeb();
-      cartaAdd.idCategoria = data.idCategoria;
-      cartaAdd.nomCategoria = data.nomCategoria;
-      cartaAdd.platos.push(data);
-      if(cartaNow.length > 0)cartaNow[0].platos.push(data);
-      else this.variableGlobales.cartaReturn.push(cartaAdd);
-    
-    });
-  }
-
-  getDataFuncionCliente(){
-    let function2 = this.variableGlobales.arrayClienteFunciones.filter(d => d.idFuncion === 2);
-    let function3 = this.variableGlobales.arrayClienteFunciones.filter(d => d.idFuncion === 3);
-    let function4 = this.variableGlobales.arrayClienteFunciones.filter(d => d.idFuncion === 4);
-    this.variableGlobales.tipoPago = function2.length > 0 ? function2[0].descripcion : "";
-    this.variableGlobales.cantidadPersonas = function3.length > 0 ? function3[0].descripcion : "";
-    this.variableGlobales.mesa = function4.length > 0 ? function4[0].descripcion : "";
-    this.variableGlobales.idMesa = function4.length > 0 ? function4[0].campo1Int : 0;
-  }
-
-  innerPlatoCarrito(){
-    this.variableGlobales.carrito.detalleCarritos.forEach(d => {
-      let platoNow = this.variableGlobales.platosArray.filter(c => c.idPlato === d.idPlato);
-      if(platoNow.length > 0 && d.flagPedido === 0){
-        platoNow[0].idDetalleCarrito = d.idDetalleCarrito;
-        platoNow[0].observacion = d.comentario;
-        platoNow[0].precioCarrito = d.precio;
-        platoNow[0].tiempoEspera = d.tiempoEspera;
-        platoNow[0].cantidad = d.cantidad;
-        platoNow[0].flagInShoppingCar = true;
-        platoNow[0].detallePlatos.forEach(dp => {
-          let detaCarritoPersonNow = d.detalleCarritoPersonalizados.filter(dcp => dcp.idProducto === dp.idProducto);
-          if(detaCarritoPersonNow.length > 0){
-            dp.idMedida = detaCarritoPersonNow[0].idMedida;
-            dp.cantidad = detaCarritoPersonNow[0].cantidad;
-            dp.flagSelect = detaCarritoPersonNow[0].flagRequerido === 1 ? true : false;
-            dp.abrMedida = detaCarritoPersonNow[0].abrMedida;
-            dp.nomMedida = detaCarritoPersonNow[0].nomMedida;
-          }
-        });
-      }
-    });
-  }
 }

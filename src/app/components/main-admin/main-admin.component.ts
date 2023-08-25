@@ -5,6 +5,7 @@ import { CabezeraMaestroService } from 'src/app/services/cabezera-maestro.servic
 import { MesaService } from 'src/app/services/mesa.service';
 import { PlatoService } from 'src/app/services/plato.service';
 import { ProductoService } from 'src/app/services/producto.service';
+import { Alert } from 'src/app/shared/functions/alerts';
 import { MainFunction } from 'src/app/shared/functions/mainFunction';
 import { VariablesGlobales } from 'src/app/shared/functions/variablesGlobales';
 
@@ -16,9 +17,11 @@ import { VariablesGlobales } from 'src/app/shared/functions/variablesGlobales';
 export class MainAdminComponent implements OnInit {
 
   constructor(public mainFunction:MainFunction, private router:Router, private variableGlobales:VariablesGlobales, private cabezeraMaestroService:CabezeraMaestroService,
-    private singleton:Singleton, private platosService:PlatoService, private mesaService:MesaService, private productoService:ProductoService) { }
+    private singleton:Singleton, private platosService:PlatoService, private mesaService:MesaService, private productoService:ProductoService,
+    private alert:Alert) { }
 
   async ngOnInit(): Promise<void> {
+    this.variableGlobales.resetAllVariables();
     await this.getDataUser();
     await this.getFiltros();
 
@@ -67,11 +70,21 @@ export class MainAdminComponent implements OnInit {
     await this.productoService.buscarAll_Inner().then(resolve => {
       if(resolve.status === 200){
         this.variableGlobales.productosArray = resolve.body.message;
+        this.variableGlobales.productosArray.forEach(d => this.variableGlobales.productosArrayFilter.push(Object.assign({},d)));
       }
     });
     await this.mesaService.buscarAll().then(resolve => {
       if(resolve.status === 200){
         this.variableGlobales.mesasArray = resolve.body.message;
+      }
+    });
+  }
+
+  logOut(){
+    this.alert.alertQuestion("¿Seguro de cerrar sesion?","").then(result=>{
+      if(result.isConfirmed){
+        localStorage.removeItem('userData');
+        this.router.navigate(['']);
       }
     });
   }
