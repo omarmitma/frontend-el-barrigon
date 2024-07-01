@@ -3,7 +3,7 @@
     .contentPedido{
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(4,24%);
+        grid-template-columns: repeat(3,calc(96% / 3));
         gap: calc(4% / 3);
         margin-top: 40px;
         .pedido{

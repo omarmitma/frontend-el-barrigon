@@ -73,7 +73,7 @@ export class VariablesGlobales {
             if(platoNow.length > 0 && d.flagPedido === 0){
                 platoNow[0].idDetalleCarrito = d.idDetalleCarrito;
                 platoNow[0].observacion = d.comentario;
-                platoNow[0].precioCarrito = d.precio;
+                platoNow[0].precioCarrito = d.precio > 0 ? d.precio : platoNow[0].precioCarrito;
                 platoNow[0].tiempoEspera = d.tiempoEspera;
                 platoNow[0].cantidad = d.cantidad;
                 platoNow[0].flagInShoppingCar = true;

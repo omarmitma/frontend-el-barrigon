@@ -1,7 +1,7 @@
 .wrapShoppingCart{
     .contentShoppingCart{
         display: grid;
-        grid-template-columns: 1fr 350px;
+        grid-template-columns: 1fr;
         gap: 2%;
         .wrapContentItems{
             .title{
@@ -127,4 +127,15 @@
 .item-pedido{
     background-color: rgba($color: $black, $alpha: 0.2);
     border-bottom: 1px solid $black;
+}
+
+@media(min-width:810px){
+    .wrapShoppingCart{
+        .contentShoppingCart{
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2%;
+        }   
+    }
+    
 }

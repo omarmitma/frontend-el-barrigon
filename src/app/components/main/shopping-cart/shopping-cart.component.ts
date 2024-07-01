@@ -48,11 +48,13 @@ export class ShoppingCartComponent implements OnInit{
 
   async confirmPedido(){
     this.alert.alertConfirm("¿Seguro de confirmar este pedido?","No se podra cancelar el pedido").then(async(resolve) => {
-      let pedido:Pedido = new Pedido();
-      pedido.idCliente = this.mainFunction.usuarioLogueado.clientes[0].idCliente;
-      await this.pedidoService.confirmPedido(pedido).then();
-      await this.getCarrito();
-      this.alert.alertSucces("Confirmado existosamente");
+      if(resolve.isConfirmed){
+        let pedido:Pedido = new Pedido();
+        pedido.idCliente = this.mainFunction.usuarioLogueado.clientes[0].idCliente;
+        await this.pedidoService.confirmPedido(pedido).then();
+        await this.getCarrito();
+        this.alert.alertSucces("Confirmado existosamente");
+      }
     });
   }
 }

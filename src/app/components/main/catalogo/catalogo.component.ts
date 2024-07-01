@@ -14,6 +14,7 @@ import { DetalleCarrito } from 'src/app/entitys/detalleCarrito';
 import { DetalleCarritoPersonalizado } from 'src/app/entitys/detalleCarritoPersonalizado';
 import { DetalleCarritoService } from 'src/app/services/detalle-carrito.service';
 import { FilterItems } from 'src/app/shared/functions/filterItems';
+import { PlatoService } from 'src/app/services/plato.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -27,10 +28,25 @@ export class CatalogoComponent implements OnInit {
 
   constructor(public variableGlobales:VariablesGlobales, private mainFunction:MainFunction, private alert:Alert,private mesaFuncionesService:MesaFuncionesService,
     private clienteFuncionesService:ClienteFuncionesService, private carritoService:CarritoService, private detalleCarritoService:DetalleCarritoService,
-    private filterItems:FilterItems) { }
+    private filterItems:FilterItems, private platosService:PlatoService) { }
 
-  ngOnInit(): void {
-    
+  async ngOnInit(): Promise<void> {
+    await this.platosService.buscarAll_Inner().then(resolve => {
+      if(resolve.status === 200){
+        this.variableGlobales.platosArray = resolve.body.message;
+        this.variableGlobales.platosArray.forEach(pl => {
+          pl.cantidad = 1;
+          pl.detallePlatos.forEach(d => {
+            d.flagSelect = true;
+          });
+        });
+
+        this.variableGlobales.platosArray.forEach(d => this.variableGlobales.platosArrayFilter.push(Object.assign({},d)));
+      }
+    });
+    this.variableGlobales.innerPlatoCarrito();
+
+    this.variableGlobales.returnCartaPlatosWeb();
   }
 
   async addItem(data:Platos){
